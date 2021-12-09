@@ -8,7 +8,7 @@
 #include "estruturas.h"
 
 #define MINANOVACINA 2019
-#define MAXANOVACINA 2021
+#define MAXANOVACINA 2022
 
 #define MIN_NUM_UTENTE 1
 #define MAX_NUM_UTENTE 5

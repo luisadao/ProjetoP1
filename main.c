@@ -7,7 +7,7 @@
 #include "funcoesGerais.h"
 #include "funcoesMembros.h"
 #include "funcoesVacinacao.h"
-
+#include "funcoesConfinamento.h"
 
 
 int main()
@@ -59,6 +59,7 @@ int main()
                 switch(opcaoSecundaria)
                 {
                 case 'R':
+                    registarEstadoConfinamento(quantMembrosComunidade, vetorMembrosCAcademica);
                     break;
                 case 'A':
                     break;

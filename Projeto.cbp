@@ -32,6 +32,10 @@
 			<Add option="-Wall" />
 		</Compiler>
 		<Unit filename="estruturas.h" />
+		<Unit filename="funcoesConfinamento.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="funcoesConfinamento.h" />
 		<Unit filename="funcoesGerais.c">
 			<Option compilerVar="CC" />
 		</Unit>

@@ -65,7 +65,7 @@ void adicionarMembro(int *quantMembrosComunidade, int  *quantMembrosVacinados, t
 void lerEstadoConfinamento(int *quantMembrosComunidade, tipoMembroCAcademica vetorMembrosCAcademica[LIMITE_MAX_MEMBROS])
 {
 
-    vetorMembrosCAcademica[(*quantMembrosComunidade)].estadoConfinamento = lerInteiro("\nIndique o seu estado de confinamento (1 - não confinado , 2 - quarentena , 3 - isolamento profilatico) : ",1,3);
+    vetorMembrosCAcademica[(*quantMembrosComunidade)].estadoConfinamento = lerInteiro("\nIndique o seu estado de confinamento (0 - Nao Confinado , 1 - Quarentena , 2 - Isolamento Profilatico) : ",0,2);
 
 }
 
@@ -132,13 +132,13 @@ void listarDadosComunidade(int quantMembrosComunidade, tipoMembroCAcademica veto
 
             switch(vetorMembrosCAcademica[i].estadoConfinamento)
             {
-            case 1:
+            case 0:
                 printf("Nao Confinado");
                 break;
-            case 2:
+            case 1:
                 printf("Quarentena");
                 break;
-            case 3:
+            case 2:
                 printf("Isolamento Profilatico");
                 break;
             }

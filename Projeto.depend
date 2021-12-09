@@ -48,3 +48,64 @@
 	"funcoesGerais.h"
 	"funcoesMembros.h"
 
+1639010527 source:/home/luui/Documents/GitHub/ProjetoP1/funcoesGerais.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"funcoesGerais.h"
+
+1639010527 /home/luui/Documents/GitHub/ProjetoP1/funcoesGerais.h
+
+1639058191 source:/home/luui/Documents/GitHub/ProjetoP1/funcoesMembros.c
+	"funcoesMembros.h"
+
+1639056802 /home/luui/Documents/GitHub/ProjetoP1/funcoesMembros.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"estruturas.h"
+
+1639057770 /home/luui/Documents/GitHub/ProjetoP1/estruturas.h
+	"funcoesGerais.h"
+
+1639010527 source:/home/luui/Documents/GitHub/ProjetoP1/funcoesVacinacao.c
+	"funcoesVacinacao.h"
+
+1639010527 /home/luui/Documents/GitHub/ProjetoP1/funcoesVacinacao.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"estruturas.h"
+	"funcoesGerais.h"
+	"funcoesMembros.h"
+
+1639058018 source:/home/luui/Documents/GitHub/ProjetoP1/main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"estruturas.h"
+	"menus.h"
+	"funcoesGerais.h"
+	"funcoesMembros.h"
+	"funcoesVacinacao.h"
+	"funcoesConfinamento.h"
+
+1639010527 /home/luui/Documents/GitHub/ProjetoP1/menus.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1639010527 source:/home/luui/Documents/GitHub/ProjetoP1/menus.c
+	"menus.h"
+
+1639057989 source:/home/luui/Documents/GitHub/ProjetoP1/funcoesConfinamento.c
+	"funcoesConfinamento.h"
+
+1639058003 /home/luui/Documents/GitHub/ProjetoP1/funcoesConfinamento.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"estruturas.h"
+	"funcoesGerais.h"
+	"funcoesMembros.h"
+
