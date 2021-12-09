@@ -1,0 +1,50 @@
+# depslib dependency file v1.0
+1638991629 source:/home/luui/Documents/2022.P1/Projeto/Projeto/main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"estruturas.h"
+	"menus.h"
+	"funcoesGerais.h"
+	"funcoesMembros.h"
+	"funcoesVacinacao.h"
+
+1638906280 /home/luui/Documents/2022.P1/Projeto/Projeto/estruturas.h
+	"funcoesGerais.h"
+
+1638449020 /home/luui/Documents/2022.P1/Projeto/Projeto/menus.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1638907410 source:/home/luui/Documents/2022.P1/Projeto/Projeto/menus.c
+	"menus.h"
+
+1638907348 source:/home/luui/Documents/2022.P1/Projeto/Projeto/funcoesGerais.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"funcoesGerais.h"
+
+1638906144 /home/luui/Documents/2022.P1/Projeto/Projeto/funcoesGerais.h
+
+1638991719 source:/home/luui/Documents/2022.P1/Projeto/Projeto/funcoesMembros.c
+	"funcoesMembros.h"
+
+1638906670 /home/luui/Documents/2022.P1/Projeto/Projeto/funcoesMembros.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"estruturas.h"
+
+1638991809 source:/home/luui/Documents/2022.P1/Projeto/Projeto/funcoesVacinacao.c
+	"funcoesVacinacao.h"
+
+1638991610 /home/luui/Documents/2022.P1/Projeto/Projeto/funcoesVacinacao.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"estruturas.h"
+	"funcoesGerais.h"
+	"funcoesMembros.h"
+

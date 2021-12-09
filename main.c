@@ -1,0 +1,104 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+#include "estruturas.h"
+#include "menus.h"
+#include "funcoesGerais.h"
+#include "funcoesMembros.h"
+#include "funcoesVacinacao.h"
+
+
+
+int main()
+{
+    char opcaoPrincipal, opcaoSecundaria;
+    int quantMembrosComunidade = 0, quantTestesAgendados = 0, quantMembrosVacinados = 0, quantTestesRealizados = 0;
+    tipoMembroCAcademica vetorMembrosCAcademica[LIMITE_MAX_MEMBROS];
+
+
+
+    do
+    {
+        opcaoPrincipal = menuPrincipal(quantMembrosComunidade, quantTestesAgendados, quantMembrosVacinados, quantTestesRealizados);
+
+        switch(opcaoPrincipal)
+        {
+
+        case 'A':
+            adicionarMembro(&quantMembrosComunidade, &quantMembrosVacinados,vetorMembrosCAcademica);
+            break;
+        case 'L':
+            listarDadosComunidade(quantMembrosComunidade, vetorMembrosCAcademica);
+            break;
+        case 'V':
+            do
+            {
+                opcaoSecundaria = menuVacinacao();
+
+                switch(opcaoSecundaria)
+                {
+                case 'R':
+                    registarEstadoVacinacao(quantMembrosComunidade, vetorMembrosCAcademica);
+                    break;
+                case 'A':
+                    atualizarEstadoVacinacao(quantMembrosComunidade, vetorMembrosCAcademica);
+                    break;
+                default:
+                    printf("\nERRO - OPCAO INVALIDA\n");
+
+                }
+
+            }
+            while(opcaoSecundaria != 'S');
+            break;
+        case 'C':
+            do
+            {
+                opcaoSecundaria = menuConfinamento();
+                switch(opcaoSecundaria)
+                {
+                case 'R':
+                    break;
+                case 'A':
+                    break;
+                default:
+                    printf("\nERRO - OPCAO INVALIDA\n");
+
+                }
+            }
+            while(opcaoSecundaria != 'S');
+            break;
+        case 'T':
+            do
+            {
+                opcaoSecundaria = menuTestes();
+                switch(opcaoSecundaria)
+                {
+                case 'R':
+                    break;
+                case 'A':
+                    break;
+                default:
+                    printf("\nERRO - OPCAO INVALIDA\n");
+
+                }
+            }
+            while(opcaoSecundaria != 'S');
+            break;
+        case 'S':
+            for(int i=0; i<quantMembrosComunidade;i++)
+            {
+                printf("\n\nSAIDA NUMERO DE SAUDE DO UTENTE %d\nNOME %s",vetorMembrosCAcademica[i].numUtenteSaude, vetorMembrosCAcademica[i].nome );
+            }
+            break;
+
+        default:
+            printf("\nERRO - OPCAO INVALIDA\n");
+        }
+
+    }
+    while(opcaoPrincipal != 'S');
+
+    return 0;
+}
