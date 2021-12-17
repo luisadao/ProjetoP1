@@ -8,6 +8,7 @@
 #include "funcoesMembros.h"
 #include "funcoesVacinacao.h"
 #include "funcoesConfinamento.h"
+#include "funcoesFicheiros.h"
 
 
 int main()
@@ -87,8 +88,33 @@ int main()
             }
             while(opcaoSecundaria != 'S');
             break;
+
+
+        case 'F':
+            do
+            {
+                opcaoSecundaria = menuFicheiros();
+                switch(opcaoSecundaria)
+                {
+                case 'G':
+                    gravaFicheiroBinario(vetorMembrosCAcademica, quantMembrosComunidade);
+                    gravarFicheiroTexto(vetorMembrosCAcademica, quantMembrosComunidade);
+                    break;
+                case 'L':
+                    lerFicheiroBinario(vetorMembrosCAcademica, &quantMembrosComunidade);
+                    break;
+                default:
+                    printf("\nERRO - OPCAO INVALIDA\n");
+
+                }
+            }
+            while(opcaoSecundaria != 'S');
+
+
+            break;
+
         case 'S':
-            for(int i=0; i<quantMembrosComunidade;i++)
+            for(int i=0; i<quantMembrosComunidade; i++)
             {
                 printf("\n\nSAIDA NUMERO DE SAUDE DO UTENTE %d\nNOME %s",vetorMembrosCAcademica[i].numUtenteSaude, vetorMembrosCAcademica[i].nome );
             }

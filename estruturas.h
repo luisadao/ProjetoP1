@@ -11,7 +11,7 @@ typedef struct{
     int tipoDeTeste; // 1 - Antigenio 2 - PCR
     tipoData dataTeste;
     int numUtenteSaude;
-    int resultado;
+    int resultado; // -1 nao realizado , 1 negativo , 2 positivo
     tipoHora horaColheita;
     int duracaoMinutos;
 

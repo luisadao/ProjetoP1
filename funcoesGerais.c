@@ -42,6 +42,25 @@ int lerInteiro (char msg[] ,int limMin, int limMax)
     return num;
 }
 
+float lerFloat (char msg[], float limMin, float limMax)
+{
+    float num;
+    int controlo;
+
+    do
+    {
+        printf("%s [%.2f, %.2f]: ", msg, limMin, limMax);
+        controlo = scanf("%f", &num);
+        limpaBuffer();
+        if (controlo != 1 || num < limMin || num > limMax)
+        {
+            printf("\n\nERRO: valor fora do intervalo solicitado");
+        }
+    }
+    while (controlo != 1 || num < limMin || num > limMax);
+
+    return num;
+}
 
 
 char lerCaracter(void){ //FUCAO QUE LE E DEVOLVE UM CARACTER EM MAISCULA
@@ -55,21 +74,6 @@ char lerCaracter(void){ //FUCAO QUE LE E DEVOLVE UM CARACTER EM MAISCULA
 
 };
 
-//??? VERIFICAR UTILIDADE DA FUNCAO
-int verificaExiste(int quantAVerificar){
-
-    int quantFuncao=0;
-
-    if(quantAVerificar != 0){
-        quantFuncao = quantAVerificar;
-    }else{
-        printf("\nERRO - Nao existem dados\n");
-        quantFuncao=0;
-    }
-
-    return quantFuncao;
-
-}
 
 
 void lerString(char msg[], char texto[], int tamanho, int obrigatorio)

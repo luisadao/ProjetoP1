@@ -9,6 +9,7 @@ char menuPrincipal(int quantMembrosComunidade, int quantTestesAgendados, int qua
 char menuVacinacao(void);
 char menuConfinamento(void);
 char menuTestes(void);
+char menuFicheiros(void);
 
 
 

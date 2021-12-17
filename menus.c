@@ -15,6 +15,7 @@ char menuPrincipal(int quantMembrosComunidade, int quantTestesAgendados, int qua
     printf("V - Menu Vacinacao\n");
     printf("C - Menu Confinamento\n");
     printf("T - Menu Testes\n");
+    printf("F - Menu Ficheiros\n");
     printf("S - Sair\n\n");
 
     opcaoP = lerCaracter();
@@ -68,4 +69,18 @@ char menuTestes(void){
     opcaoT = lerCaracter();
 
     return opcaoT;
+}
+
+char menuFicheiros(void){
+
+    char opcaoF;
+
+    printf("\n\tMENU FICHEIROS\n");
+    printf("G - Guardar dados num Ficheiro\n");
+    printf("L - Ler dados do Ficheiro\n");
+    printf("S - Regressar\n");
+
+    opcaoF = lerCaracter();
+
+    return opcaoF;
 }
