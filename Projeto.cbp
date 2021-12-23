@@ -48,6 +48,10 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="funcoesMembros.h" />
+		<Unit filename="funcoesTestes.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="funcoesTestes.h" />
 		<Unit filename="funcoesVacinacao.c">
 			<Option compilerVar="CC" />
 		</Unit>

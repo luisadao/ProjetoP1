@@ -5,7 +5,7 @@
 #include <string.h>
 
 #include "estruturas.h"
-#include "funcoesGerais.h"
+
 #include "funcoesMembros.h"
 
 void registarEstadoVacinacao(int quantMembrosComunidade, tipoMembroCAcademica vetorMembrosCAcademica[LIMITE_MAX_MEMBROS]);

@@ -196,3 +196,17 @@ void escreverData(tipoData data)
     printf("%02d-%02d-%d", data.dia, data.mes, data.ano);
 
 }
+
+
+int comparaData(tipoData data1, tipoData data2){
+
+    int igual=0;
+
+    if((data1.ano == data2.ano) && (data1.mes == data2.mes) && (data1.dia == data2.dia) ){
+        igual = 1;
+
+    }
+    return igual;
+
+
+}

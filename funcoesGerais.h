@@ -27,6 +27,7 @@ int lerInteiro (char msg[] ,int limMin, int limMax);
 void lerString(char msg[], char texto[], int tamanho, int obrigatorio);
 tipoData lerData(char msg[], int minAno, int maxAno);
 void escreverData(tipoData data);
+int comparaData(tipoData data1, tipoData data2);
 
 
 #endif // FUNCOESGERAIS_H_INCLUDED

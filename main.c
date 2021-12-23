@@ -9,6 +9,7 @@
 #include "funcoesVacinacao.h"
 #include "funcoesConfinamento.h"
 #include "funcoesFicheiros.h"
+#include "funcoesTestes.h"
 
 
 int main()
