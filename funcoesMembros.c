@@ -66,6 +66,9 @@ void lerEstadoConfinamento(int *quantMembrosComunidade, tipoMembroCAcademica vet
 {
 
     vetorMembrosCAcademica[(*quantMembrosComunidade)].estadoConfinamento = lerInteiro("\nIndique o seu estado de confinamento (0 - Nao Confinado , 1 - Quarentena , 2 - Isolamento Profilatico) : ",0,2);
+    if(vetorMembrosCAcademica[(*quantMembrosComunidade)].estadoConfinamento == 1 || vetorMembrosCAcademica[(*quantMembrosComunidade)].estadoConfinamento  == 2){
+        vetorMembrosCAcademica[(*quantMembrosComunidade)].dataConfinamento = lerData("\nIndique a data em que entrou em confinamento : ",MINANOCONFINAMENTO,MAXANOCONFINAMENTO);
+    }
 
 }
 

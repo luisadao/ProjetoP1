@@ -33,7 +33,7 @@ int main()
         case 'L':
             listarDadosComunidade(quantMembrosComunidade, vetorMembrosCAcademica);
             break;
-        case 'V':
+        case 'V':   //MENU VACINACAO
             do
             {
                 opcaoSecundaria = menuVacinacao();
@@ -54,7 +54,7 @@ int main()
             }
             while(opcaoSecundaria != 'S');
             break;
-        case 'C':
+        case 'C':   //MENU CONFINAMENTO
             do
             {
                 opcaoSecundaria = menuConfinamento();
@@ -64,6 +64,10 @@ int main()
                     registarEstadoConfinamento(quantMembrosComunidade, vetorMembrosCAcademica);
                     break;
                 case 'A':
+                    atualizarEstadoConfinamento( quantMembrosComunidade,  vetorMembrosCAcademica);
+                    break;
+                case 'L':
+                    listarCasosConfinamento(quantMembrosComunidade, vetorMembrosCAcademica);
                     break;
                 default:
                     printf("\nERRO - OPCAO INVALIDA\n");

@@ -31,6 +31,8 @@ typedef struct {
     tipoTeste testesAgendados[10]; //10 enquanto nao dermos memoria dinamica
     tipoData dataConfinamento;
     int duracaoConfinamentoDias;
+    int ultimoConfinamento;
+
 
 }tipoMembroCAcademica; // FIM Estrutura Membro Comunidade Academica
 

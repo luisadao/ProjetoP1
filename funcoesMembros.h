@@ -6,6 +6,7 @@
 #include <string.h>
 
 #include "estruturas.h"
+#include "funcoesConfinamento.h"
 
 #define MINANOVACINA 2019
 #define MAXANOVACINA 2022

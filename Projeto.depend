@@ -48,38 +48,38 @@
 	"funcoesGerais.h"
 	"funcoesMembros.h"
 
-1639649477 source:/home/luui/Documents/GitHub/ProjetoP1/funcoesGerais.c
+1639753045 source:/home/luui/Documents/GitHub/ProjetoP1/funcoesGerais.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	"funcoesGerais.h"
 
-1639010527 /home/luui/Documents/GitHub/ProjetoP1/funcoesGerais.h
+1639753067 /home/luui/Documents/GitHub/ProjetoP1/funcoesGerais.h
 
-1639058191 source:/home/luui/Documents/GitHub/ProjetoP1/funcoesMembros.c
+1641605458 source:/home/luui/Documents/GitHub/ProjetoP1/funcoesMembros.c
 	"funcoesMembros.h"
 
-1639056802 /home/luui/Documents/GitHub/ProjetoP1/funcoesMembros.h
+1641605478 /home/luui/Documents/GitHub/ProjetoP1/funcoesMembros.h
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	"estruturas.h"
+	"funcoesConfinamento.h"
 
-1639648441 /home/luui/Documents/GitHub/ProjetoP1/estruturas.h
+1641605900 /home/luui/Documents/GitHub/ProjetoP1/estruturas.h
 	"funcoesGerais.h"
 
 1639010527 source:/home/luui/Documents/GitHub/ProjetoP1/funcoesVacinacao.c
 	"funcoesVacinacao.h"
 
-1639010527 /home/luui/Documents/GitHub/ProjetoP1/funcoesVacinacao.h
+1639752367 /home/luui/Documents/GitHub/ProjetoP1/funcoesVacinacao.h
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	"estruturas.h"
-	"funcoesGerais.h"
 	"funcoesMembros.h"
 
-1639650106 source:/home/luui/Documents/GitHub/ProjetoP1/main.c
+1641606169 source:/home/luui/Documents/GitHub/ProjetoP1/main.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -90,6 +90,7 @@
 	"funcoesVacinacao.h"
 	"funcoesConfinamento.h"
 	"funcoesFicheiros.h"
+	"funcoesTestes.h"
 
 1639649314 /home/luui/Documents/GitHub/ProjetoP1/menus.h
 	<stdio.h>
@@ -99,10 +100,10 @@
 1639649296 source:/home/luui/Documents/GitHub/ProjetoP1/menus.c
 	"menus.h"
 
-1639751223 source:/home/luui/Documents/GitHub/ProjetoP1/funcoesConfinamento.c
+1641606127 source:/home/luui/Documents/GitHub/ProjetoP1/funcoesConfinamento.c
 	"funcoesConfinamento.h"
 
-1639058003 /home/luui/Documents/GitHub/ProjetoP1/funcoesConfinamento.h
+1641606178 /home/luui/Documents/GitHub/ProjetoP1/funcoesConfinamento.h
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -119,4 +120,14 @@
 	<string.h>
 	"estruturas.h"
 	"funcoesGerais.h"
+
+1639752260 /home/luui/Documents/GitHub/ProjetoP1/funcoesTestes.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"estruturas.h"
+	"funcoesMembros.h"
+
+1639753232 source:/home/luui/Documents/GitHub/ProjetoP1/funcoesTestes.c
+	"funcoesTestes.h"
 
