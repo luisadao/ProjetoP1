@@ -17,6 +17,7 @@ int main()
     char opcaoPrincipal, opcaoSecundaria;
     int quantMembrosComunidade = 0, quantTestesAgendados = 0, quantMembrosVacinados = 0, quantTestesRealizados = 0;
     tipoMembroCAcademica vetorMembrosCAcademica[LIMITE_MAX_MEMBROS];
+    tipoTeste vetorTestes[20];
 
 
 
@@ -77,14 +78,16 @@ int main()
             while(opcaoSecundaria != 'S');
             break;
         case 'T':
-            do
+            do  //MENU TESTES
             {
                 opcaoSecundaria = menuTestes();
                 switch(opcaoSecundaria)
                 {
                 case 'R':
+
                     break;
                 case 'A':
+                    agendarTeste(vetorMembrosCAcademica,  quantMembrosComunidade, vetorTestes, &quantTestesAgendados);
                     break;
                 default:
                     printf("\nERRO - OPCAO INVALIDA\n");

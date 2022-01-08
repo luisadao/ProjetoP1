@@ -4,8 +4,17 @@
 #define SIM 1
 #define NAO 0
 
-#define MINANO 1910
-#define MAXANO 2004
+#define MINANONASCIMENTO 1910
+#define MAXANONASCIMENTO 2004
+#define MINANO 2020
+#define MAXANO 2022
+
+#define MAXHORAS 23
+
+#define MINMINUTOS 0
+#define MAXMINUTOS 59
+
+
 
 #define MAXSTRING 50
 
@@ -28,6 +37,7 @@ void lerString(char msg[], char texto[], int tamanho, int obrigatorio);
 tipoData lerData(char msg[], int minAno, int maxAno);
 void escreverData(tipoData data);
 int comparaData(tipoData data1, tipoData data2);
+tipoHora lerHora(char msg[], int MINHORA, int MAXHORA);
 
 
 #endif // FUNCOESGERAIS_H_INCLUDED

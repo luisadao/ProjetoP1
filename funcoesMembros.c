@@ -2,7 +2,7 @@
 
 
 
-void adicionarMembro(int *quantMembrosComunidade, int  *quantMembrosVacinados, tipoMembroCAcademica vetorMembrosCAcademica[LIMITE_MAX_MEMBROS])
+void adicionarMembro(int *quantMembrosComunidade, int  *quantMembrosVacinados, tipoMembroCAcademica vetorMembrosCAcademica[])
 {
 
     char nomeTemp[LIMITE_MAX_NOME];
@@ -36,7 +36,7 @@ void adicionarMembro(int *quantMembrosComunidade, int  *quantMembrosVacinados, t
 
                 lerString("\nIntroduza o nome do utente : ",vetorMembrosCAcademica[(*quantMembrosComunidade)].nome, LIMITE_MAX_NOME, SIM);
                 vetorMembrosCAcademica[(*quantMembrosComunidade)].tipoMembro = lerInteiro("\nIndique o seu tipo de utente : \n1 - Estudante\n2 - Docente\n3 - Técnico\n", 1,3);
-                vetorMembrosCAcademica[(*quantMembrosComunidade)].anoNascimento = lerInteiro("\nIntroduza o ano de nascimento : ",MINANO, MAXANO);
+                vetorMembrosCAcademica[(*quantMembrosComunidade)].anoNascimento = lerInteiro("\nIntroduza o ano de nascimento : ",MINANONASCIMENTO, MAXANONASCIMENTO);
                 //  vetorMembrosCAcademica[(*quantMembrosComunidade)].estadoConfinamento = lerInteiro("\nIndique o seu estado de confinamento (1 - não confinado , 2 - quarentena , 3 - isolamento profilatico) : ",1,3);
                 //  vetorMembrosCAcademica[(*quantMembrosComunidade)].estadoVacina = lerInteiro("\nIndique o estado da sua vacinacao :\n0 - Nao Vacinado\n1 - Primeira Dose\n2 - Segunda Dose\n3 - Terceira Dose\n",1,3);
                 lerEstadoConfinamento(quantMembrosComunidade, vetorMembrosCAcademica);
@@ -62,7 +62,7 @@ void adicionarMembro(int *quantMembrosComunidade, int  *quantMembrosVacinados, t
 }
 
 
-void lerEstadoConfinamento(int *quantMembrosComunidade, tipoMembroCAcademica vetorMembrosCAcademica[LIMITE_MAX_MEMBROS])
+void lerEstadoConfinamento(int *quantMembrosComunidade, tipoMembroCAcademica vetorMembrosCAcademica[])
 {
 
     vetorMembrosCAcademica[(*quantMembrosComunidade)].estadoConfinamento = lerInteiro("\nIndique o seu estado de confinamento (0 - Nao Confinado , 1 - Quarentena , 2 - Isolamento Profilatico) : ",0,2);
@@ -72,14 +72,14 @@ void lerEstadoConfinamento(int *quantMembrosComunidade, tipoMembroCAcademica vet
 
 }
 
-void lerVacinacao(int *quantMembrosComunidade, tipoMembroCAcademica vetorMembrosCAcademica[LIMITE_MAX_MEMBROS])
+void lerVacinacao(int *quantMembrosComunidade, tipoMembroCAcademica vetorMembrosCAcademica[])
 {
 
     vetorMembrosCAcademica[(*quantMembrosComunidade)].estadoVacina = lerInteiro("\nIndique o estado da sua vacinacao :\n0 - Nao Vacinado\n1 - Primeira Dose\n2 - Segunda Dose\n3 - Terceira Dose\n",0,3);
 
 }
 
-int procuraNumeroSNS(tipoMembroCAcademica vetorMembrosCAcademica[LIMITE_MAX_MEMBROS], int quantMembrosComunidade, int numSNSProcurar)
+int procuraNumeroSNS(tipoMembroCAcademica vetorMembrosCAcademica[], int quantMembrosComunidade, int numSNSProcurar)
 {
 
     int i, posicaoSNS=-1;
@@ -98,7 +98,7 @@ int procuraNumeroSNS(tipoMembroCAcademica vetorMembrosCAcademica[LIMITE_MAX_MEMB
 
 }
 
-void listarDadosComunidade(int quantMembrosComunidade, tipoMembroCAcademica vetorMembrosCAcademica[LIMITE_MAX_MEMBROS])
+void listarDadosComunidade(int quantMembrosComunidade, tipoMembroCAcademica vetorMembrosCAcademica[])
 {
 
     int i;
@@ -170,9 +170,9 @@ void listarDadosComunidade(int quantMembrosComunidade, tipoMembroCAcademica veto
                 escreverData(vetorMembrosCAcademica[i].dataUltimaVacina);
             }
 
-            printf("\nQuantidade Testes Realizados : %d", vetorMembrosCAcademica[i].quantTestesRealizados);
+//            printf("\nQuantidade Testes Realizados : %d", vetorMembrosCAcademica[i].quantTestesRealizados);
 
-            if(vetorMembrosCAcademica[i].quantTestesAgendados != 0)
+            /*if(vetorMembrosCAcademica[i].quantTestesAgendados != 0)
             {
                 for(int iTestes=0; iTestes < vetorMembrosCAcademica[i].testesAgendados; iTestes++)
                 {
@@ -191,7 +191,7 @@ void listarDadosComunidade(int quantMembrosComunidade, tipoMembroCAcademica veto
                     escreverData(vetorMembrosCAcademica[i].testesAgendados[iTestes].dataTeste);
 
                 }
-            }
+            }*/
         }
     }
 }

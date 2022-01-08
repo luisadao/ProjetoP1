@@ -9,6 +9,10 @@
 #define MINDIASCONFINAMENTO 1
 #define MAXDIASCONFINAMENTO 15
 
+#define QUARENTENA 1
+#define ISOLAMENTOPROFILATICO 2
+
+
 #include "estruturas.h"
 #include "funcoesGerais.h"
 #include "funcoesMembros.h"

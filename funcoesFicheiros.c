@@ -118,10 +118,6 @@ void gravarFicheiroTexto(tipoMembroCAcademica vetorMembrosCAcademica[], int quan
             {
                 fprintf(ficheiro,"Estado Vacina : %d Dose\t\t", vetorMembrosCAcademica[i].estadoVacina);
                 fprintf(ficheiro,"Data Avaliacao: %d - %d - %d", vetorMembrosCAcademica[i].dataUltimaVacina.dia,vetorMembrosCAcademica[i].dataUltimaVacina.mes,vetorMembrosCAcademica[i].dataUltimaVacina.ano);
-/*                fprintf(ficheiro,"\nNota Mini-Testes: %.2f", vetorMembrosCAcademica[i].notasParciais.notaMiniTestes);
-                fprintf(ficheiro,"\nNota Trabalho: %.2f", vetorMembrosCAcademica[i].notasParciais.notaTrabalho);
-                fprintf(ficheiro,"\nNota TestePratico: %.2f", vetorMembrosCAcademica[i].notasParciais.notaTestePratico);
-*/
 
             }
             fprintf(ficheiro,"\n_________________________________________________\n");

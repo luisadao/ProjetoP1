@@ -20,7 +20,7 @@ void registarEstadoConfinamento(int quantMembrosComunidade, tipoMembroCAcademica
 
             printf("\nIndique o tipo de confinamento em que se encontra o utente %s.", vetorMembrosCAcademica[posicaoUtente].nome);
 
-            vetorMembrosCAcademica[posicaoUtente].estadoConfinamento = lerInteiro("(0 - Nao Confinado , 1 - Quarentena , 2 - Isolamento Profilatico)", 0, 2); // 0 serve como  escapatoria caso o utilizador entre sem querer na opcao ???
+            vetorMembrosCAcademica[posicaoUtente].estadoConfinamento = lerInteiro("(0 - Nao Confinado , 1 - Quarentena , 2 - Isolamento Profilatico)", 0, ISOLAMENTOPROFILATICO); // 0 serve como  escapatoria caso o utilizador entre sem querer na opcao ???
 
             if(vetorMembrosCAcademica[posicaoUtente].estadoConfinamento  == 1 || vetorMembrosCAcademica[posicaoUtente].estadoConfinamento  == 2 )
             {
@@ -74,11 +74,6 @@ void atualizarEstadoConfinamento(int quantMembrosComunidade, tipoMembroCAcademic
     }
 
 }
-
-
-
-
-
 
 
 

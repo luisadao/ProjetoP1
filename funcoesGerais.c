@@ -16,7 +16,7 @@ void limpaBuffer(void)
 }
 
 
-int lerInteiro (char msg[] ,int limMin, int limMax)
+int lerInteiro (char msg[],int limMin, int limMax)
 {
     int num, controlo;
 
@@ -63,7 +63,8 @@ float lerFloat (char msg[], float limMin, float limMax)
 }
 
 
-char lerCaracter(void){ //FUCAO QUE LE E DEVOLVE UM CARACTER EM MAISCULA
+char lerCaracter(void)  //FUCAO QUE LE E DEVOLVE UM CARACTER EM MAISCULA
+{
 
     char opcao;
 
@@ -106,6 +107,49 @@ void lerString(char msg[], char texto[], int tamanho, int obrigatorio)
     {
         texto[tamEscrito-1] = '\0';
     }
+
+}
+
+tipoHora lerHora(char msg[], int minHora, int maxHora)
+{
+
+    tipoHora hora;
+    int controlo=0, error=0;
+
+    do
+    {
+        error=0;
+
+        do
+        {
+            printf("\n%s", msg);
+            controlo = scanf("%d:%d", &hora.hora, &hora.minutos);
+            limpaBuffer();
+            if(controlo != 2)
+            {
+                printf("\nERRO: Formato de hora invalido");
+
+            }
+        }
+        while(controlo != 2);
+
+        if(hora.hora < minHora || hora.hora > maxHora)
+        {
+            printf("\nERRO : Hora invalida!\n");
+            error=1;
+        }
+        if(hora.minutos < 0 || hora.minutos > 59)
+        {
+            printf("\nERRO : Minutos invalidos!\n");
+            error=1;
+
+        }
+
+    }
+    while(error);
+
+    return hora;
+
 
 }
 
@@ -198,11 +242,13 @@ void escreverData(tipoData data)
 }
 
 
-int comparaData(tipoData data1, tipoData data2){
+int comparaData(tipoData data1, tipoData data2)
+{
 
     int igual=0;
 
-    if((data1.ano == data2.ano) && (data1.mes == data2.mes) && (data1.dia == data2.dia) ){
+    if((data1.ano == data2.ano) && (data1.mes == data2.mes) && (data1.dia == data2.dia) )
+    {
         igual = 1;
 
     }

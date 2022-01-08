@@ -1,0 +1,8 @@
+
+Operacao: Teste Agendado
+Codigo Teste : 1
+Nr. Membro : 1 - JOSE
+Total Testes Agendados do Membro : 1
+Total Testes Realizados do Membro : 0
+Data da Reserva: 02-02-2022
+Tipo de Teste: PCR

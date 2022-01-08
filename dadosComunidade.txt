@@ -1,6 +1,6 @@
 
 
 Membro (1)
-Nr.Utente: 2 - Nome: JOSE
-Estado Vacina : 2 Dose		Data Avaliacao: 12 - 2 - 2021
+Nr.Utente: 1 - Nome: JOSE
+Membro Nao Vacinado
 _________________________________________________

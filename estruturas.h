@@ -5,9 +5,10 @@
 #define LIMITE_MAX_NOME 50
 #include "funcoesGerais.h"
 
-typedef struct{
+typedef struct
+{
 
-    int codigo;
+    int codigoTeste; // automaticamente gerado
     int tipoDeTeste; // 1 - Antigenio 2 - PCR
     tipoData dataTeste;
     int numUtenteSaude;
@@ -15,9 +16,10 @@ typedef struct{
     tipoHora horaColheita;
     int duracaoMinutos;
 
-}tipoTeste; //FIM Estrutura Tipo Teste
+} tipoTeste; //FIM Estrutura Tipo Teste
 
-typedef struct {
+typedef struct
+{
 
     int numUtenteSaude;
     char nome[LIMITE_MAX_NOME];
@@ -28,13 +30,12 @@ typedef struct {
     tipoData dataUltimaVacina;
     int quantTestesAgendados;
     int quantTestesRealizados;
-    tipoTeste testesAgendados[10]; //10 enquanto nao dermos memoria dinamica
     tipoData dataConfinamento;
     int duracaoConfinamentoDias;
     int ultimoConfinamento;
 
 
-}tipoMembroCAcademica; // FIM Estrutura Membro Comunidade Academica
+} tipoMembroCAcademica; // FIM Estrutura Membro Comunidade Academica
 
 
 
