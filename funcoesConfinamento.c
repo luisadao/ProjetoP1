@@ -111,13 +111,29 @@ void listarCasosConfinamento(int quantMembrosComunidade, tipoMembroCAcademica ve
                 printf("\nDias em Confinamento : %d", vetorMembrosCAcademica[i].duracaoConfinamentoDias);
 
             }
+            else
+            {
+                printf("\nNome : %s",vetorMembrosCAcademica[i].nome);
+                printf("\nTipo de Confinamento : ");
+                switch(vetorMembrosCAcademica[i].estadoConfinamento)
+                {
+                case 1 :
+                    printf("Quarentena");
+                    break;
+                case 2:
+                    printf("Isolamento Profilatico");
+                    break;
 
+                }
+                printf("\nData de Confinamento : ");
+                escreverData(vetorMembrosCAcademica[i].dataConfinamento);
+
+
+
+
+            }
 
         }
-
-
-
-
 
     }
 }

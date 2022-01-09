@@ -38,6 +38,7 @@ tipoData lerData(char msg[], int minAno, int maxAno);
 void escreverData(tipoData data);
 int comparaData(tipoData data1, tipoData data2);
 tipoHora lerHora(char msg[], int MINHORA, int MAXHORA);
+void escreverHoras(tipoHora hora);
 
 
 #endif // FUNCOESGERAIS_H_INCLUDED

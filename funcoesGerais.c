@@ -241,6 +241,11 @@ void escreverData(tipoData data)
 
 }
 
+void escreverHoras(tipoHora hora){
+    printf("%02d:%02d", hora.hora, hora.minutos);
+
+}
+
 
 int comparaData(tipoData data1, tipoData data2)
 {

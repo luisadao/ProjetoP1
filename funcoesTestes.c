@@ -1,77 +1,150 @@
 #include "funcoesTestes.h"
 
-
-/*void agendarTeste(tipoMembroCAcademica vetorMembrosCAcademica[LIMITE_MAX_MEMBROS], int quantMembrosComunidade, int *quantTestesAgendados)
+void apresentarDadosTeste(tipoTeste vetorTestes[], int quantTotalTestes, tipoMembroCAcademica vetorMembrosCAcademica[], int quantMembrosComunidade)
 {
+    int posicaoTeste=0, codigoTeste=0, posicaoUtente=0, i=0, contaTestesPositivos=0;
 
-    int posicaoNUtente=0, tempNUtente=0,quantTestesPCRDia=0, aux=0;
-
-
-    if(quantMembrosComunidade == 0)
+    if(quantTotalTestes == 0)
     {
-        printf("\nERRO - Nao existem membros na comunidade!\n");
+        printf("\nERRO : nao existem testes registados");
+
     }
     else
     {
-        printf("\n------------- AGENDAR TESTE -------------\n");
+        codigoTeste = lerInteiro("\nIndique o codigo do teste que pretende visualisar os dados : ", 1,quantTotalTestes);
 
-        tempNUtente = lerInteiro("\nInsira o Nº de utente do Membro que pretende agendar um teste.",MIN_NUM_UTENTE,MAX_NUM_UTENTE);
-        posicaoNUtente = procuraNumeroSNS(vetorMembrosCAcademica, quantMembrosComunidade, tempNUtente);
+        posicaoTeste = procurarTeste(vetorTestes, quantTotalTestes, codigoTeste);
 
-        if(posicaoNUtente != -1)
+        posicaoUtente = procuraNumeroSNS(vetorMembrosCAcademica,quantMembrosComunidade,vetorTestes[posicaoTeste].numUtenteSaude );
 
+        printf("\nNome : %s",vetorMembrosCAcademica[posicaoUtente].nome);
+        printf("\nTipo Membro : ");
+        switch(vetorMembrosCAcademica[posicaoUtente].tipoMembro)
         {
-            vetorMembrosCAcademica[posicaoNUtente].testesAgendados->tipoDeTeste = lerInteiro("\nIndique o tipo de teste que prentende agendar : (1 - Antigenio , 2 - PCR)", 1, 2);
-            vetorMembrosCAcademica[posicaoNUtente].testesAgendados->dataTeste = lerData("\nIndique a data em que pretende realizar o teste :",MINANO,MAXANO);
-            printf("\nANTES DO IF\n\n");
+        case 1:
+            printf("Estudante");
+            break;
+        case 2:
+            printf("Docente");
+            break;
+        case 3:
+            printf("Tecnico");
+            break;
+        }
 
-            if(vetorMembrosCAcademica[posicaoNUtente].testesAgendados->tipoDeTeste == 2)
+        printf("\nTipo : ");
+        switch(vetorTestes[posicaoTeste].tipoDeTeste)
+        {
+        case 1:
+            printf("Antigenio");
+            break;
+        case 2:
+            printf("PCR");
+            break;
+        }
+        printf("\nData : ");
+        escreverData(vetorTestes[posicaoTeste].dataTeste);
+
+        if(vetorTestes[posicaoTeste].resultado != -1)
+        {
+            printf("\nResultado : ");
+            switch(vetorTestes[posicaoTeste].resultado)
             {
-                printf("\nif(quantTestesAgendados != 0)\n");
-                if(quantTestesAgendados != 0)
-                {
-                    for(int i; i<quantTestesAgendados; i++)
-                    {
-                        aux = comparaData(vetorMembrosCAcademica[posicaoNUtente].testesAgendados->dataTeste,vetorMembrosCAcademica[i].testesAgendados->dataTeste);
-
-                        if(aux == 1)
-                        {
-                            quantTestesPCRDia++;
-                        }
-
-                    }
-                }
-                printf("if(quantTestesPCRDia>MAXTESTESDIA)");
-                if(quantTestesPCRDia>MAXTESTESDIA)
-                {
-                    printf("\n\n\nERRO : Foi atigindo o maximo de testes PCR para o dia indicado.\n\n");
-
-                }
-                else
-                {
-                    vetorMembrosCAcademica[posicaoNUtente].quantTestesAgendados++;
-                    (*quantTestesAgendados)++;
-
-                }
+            case 0:
+                printf("Negativo");
+                break;
+            case 1:
+                printf("Positivo");
+                break;
+            case 2:
+                printf("Inconclusivo");
+                break;
 
             }
-
+            printf("\nHora da colheita : ");
+            escreverHoras(vetorTestes[posicaoTeste].horaColheita);
+            printf("\nDuracao (Em minutos) : %02d", vetorTestes[posicaoTeste].duracaoMinutos);
 
         }
-        else
+
+        printf("\nQuantidade testes positivos : ");
+        for(i=0; i<quantTotalTestes; i++)
         {
-            printf("\nERROR - Nao existe Membro registado com o numero de utente indicado.");
+
+            if(vetorTestes[i].numUtenteSaude == vetorTestes[posicaoTeste].numUtenteSaude && vetorTestes[i].resultado == 1)
+            {
+                contaTestesPositivos++;
+            }
+
         }
 
+        printf("%d",contaTestesPositivos);
 
+
+        //procurar em todos os testes do utilizador quais os que estao positivos
 
 
 
     }
 
-
 }
-*/
+
+void listarTestes(tipoTeste vetorTestes[],int quantTotalTestes)
+{
+    int i;
+
+    printf("\n\n------------- LISTAR TESTES -------------\n");
+
+    if(quantTotalTestes == 0)
+    {
+        printf("\nERRO : nao existem testes registados");
+
+    }
+    else
+    {
+
+        for(i=0; i < quantTotalTestes ; i++)
+        {
+            printf("\n\nCodigo : %d",vetorTestes[i].codigoTeste);
+            printf("\nTipo : ");
+            switch(vetorTestes[i].tipoDeTeste)
+            {
+            case 1:
+                printf("Antigenio");
+                break;
+            case 2:
+                printf("PCR");
+                break;
+            }
+            printf("\nData : ");
+            escreverData(vetorTestes[i].dataTeste);
+            printf("\nNumero Utente : %d", vetorTestes[i].numUtenteSaude);
+
+            if(vetorTestes[i].resultado != -1)
+            {
+                printf("\nResultado : ");
+                switch(vetorTestes[i].resultado)
+                {
+                case 0:
+                    printf("Negativo");
+                    break;
+                case 1:
+                    printf("Positivo");
+                    break;
+                case 2:
+                    printf("Inconclusivo");
+                    break;
+
+                }
+                printf("\nHora da colheita : ");
+                escreverHoras(vetorTestes[i].horaColheita);
+                printf("\nDuracao (Em minutos) : %02d", vetorTestes[i].duracaoMinutos);
+
+            }
+
+        }
+    }
+}
 
 
 void agendarTeste(tipoMembroCAcademica vetorMembrosCAcademica[], int quantMembrosComunidade, tipoTeste vetorTestes[],int *quantTestesAgendados)
@@ -120,7 +193,7 @@ void agendarTeste(tipoMembroCAcademica vetorMembrosCAcademica[], int quantMembro
                 for(i=0; i<*quantTestesAgendados; i++)
                 {
 
-                    if(vetorTestes[i].tipoDeTeste == TESTEPCR && vetorTestes[i].dataTeste == vetorTestes[*quantTestesAgendados].dataTeste)
+                    if(vetorTestes[i].tipoDeTeste == TESTEPCR && vetorTestes[i].dataTeste.dia == vetorTestes[*quantTestesAgendados].dataTeste.dia && vetorTestes[i].dataTeste.mes == vetorTestes[*quantTestesAgendados].dataTeste.mes && vetorTestes[i].dataTeste.ano == vetorTestes[*quantTestesAgendados].dataTeste.ano)
                     {
                         quantTestesPCRDia++;
                         if(quantTestesPCRDia==MAXTESTESPCRDIA)
@@ -128,6 +201,8 @@ void agendarTeste(tipoMembroCAcademica vetorMembrosCAcademica[], int quantMembro
                             printf("\nERRO : Nao e possivel agendar um teste do tipo PCR para o dia ");
                             escreverData(vetorTestes[*quantTestesAgendados].dataTeste);
                             i=*quantTestesAgendados;
+                            vetorTestes[*quantTestesAgendados] = vetorTestes[*quantTestesAgendados+1];
+                            return;  //perguntar á professora se podemos fazer este return aqui
 
                         }
                     }
@@ -137,17 +212,13 @@ void agendarTeste(tipoMembroCAcademica vetorMembrosCAcademica[], int quantMembro
 
             }
 
-
-
             vetorMembrosCAcademica[posicaoNUtente].quantTestesAgendados++;
 
-
+            vetorTestes[*quantTestesAgendados].resultado = -1;
 
             printf("\nTotal de Testes agendados do Membro (%s) : %d\n", vetorMembrosCAcademica[posicaoNUtente].nome, vetorMembrosCAcademica[posicaoNUtente].quantTestesAgendados);
 
-
             logTestes(vetorTestes[*quantTestesAgendados], vetorMembrosCAcademica[posicaoNUtente], "Teste Agendado");
-
 
             (*quantTestesAgendados)++;
 
@@ -176,9 +247,24 @@ void logTestes(tipoTeste teste, tipoMembroCAcademica membro, char operacao[])
         fprintf(ficheiro,"\nOperacao: %s",operacao);
         fprintf(ficheiro,"\nCodigo Teste : %d", teste.codigoTeste);
         fprintf(ficheiro,"\nNr. Membro : %d - %s", membro.numUtenteSaude, membro.nome);
-        fprintf(ficheiro,"\nTotal Testes Agendados do Membro : %d",membro.quantTestesAgendados);
-        fprintf(ficheiro,"\nTotal Testes Realizados do Membro : %d",membro.quantTestesRealizados);
-        fprintf(ficheiro,"\nData da Reserva: %02d-%02d-%d", teste.dataTeste.dia, teste.dataTeste.mes, teste.dataTeste.ano);
+        fprintf(ficheiro, "\nEstado de vacinacao : ");
+        switch(membro.estadoVacina)
+        {
+        case 0:
+            fprintf(ficheiro,"Nao Vacinado");
+            break;
+        case 1:
+            fprintf(ficheiro,"Primeira Dose");
+            break;
+        case 2:
+            fprintf(ficheiro,"Segunda Dose");
+            break;
+        case 3:
+            fprintf(ficheiro,"Terceira Dose");
+            break;
+        }
+
+        fprintf(ficheiro,"\nData do Teste: %02d-%02d-%d", teste.dataTeste.dia, teste.dataTeste.mes, teste.dataTeste.ano);
         if (teste.tipoDeTeste == TESTEPCR)
         {
             fprintf(ficheiro,"\nTipo de Teste: PCR\n");
@@ -186,6 +272,27 @@ void logTestes(tipoTeste teste, tipoMembroCAcademica membro, char operacao[])
         else
         {
             fprintf(ficheiro,"\nTipo de Teste: Antigenio\n");
+        }
+
+        if(teste.resultado != -1)
+        {
+            fprintf(ficheiro,"\nResultado : ");
+            switch(teste.resultado)
+            {
+            case 0:
+                fprintf(ficheiro,"Negativo");
+                break;
+            case 1:
+                fprintf(ficheiro,"Positivo");
+                break;
+            case 2:
+                fprintf(ficheiro,"Inconclusivo");
+                break;
+            }
+
+            fprintf(ficheiro,"\nHora da colheira : %02d:%02d", teste.horaColheita.hora, teste.horaColheita.minutos);
+            fprintf(ficheiro,"\nTempo decorrido (Em minutos): %02d",teste.duracaoMinutos);
+
         }
 
 
@@ -199,10 +306,8 @@ void logTestes(tipoTeste teste, tipoMembroCAcademica membro, char operacao[])
 }
 
 
-
 int procurarTeste(tipoTeste vetorTestes[], int quantTestesAgendados, int codigo)
 {
-
     int i, posicaoTeste = -1;
 
     for(i=0; i < quantTestesAgendados; i++)
@@ -248,29 +353,40 @@ void registarResultadoTeste(tipoMembroCAcademica vetorMembrosCAcademica[], int q
         else
         {
 
-            posicaoNUtente = procuraNumeroSNS(vetorMembrosCAcademica, quantMembrosComunidade, vetorTestes[posicaoTeste].numUtenteSaude);
-
-            vetorTestes[posicaoTeste].horaColheita = lerHora("\nIndique a hora em que foi colhida a amostra : ",0,MAXHORAS);
-            vetorTestes[posicaoTeste].duracaoMinutos = lerInteiro("\nIndique o tempo de duracao em minutos",0,MAXMINUTOSTESTE);
-
-
-            vetorTestes[posicaoTeste].resultado = lerInteiro("\nIndique o resultado do teste realizado : (0 - Negativo ; 1 - Positivo ; 2 - Inconclusivo)",NEGATIVO,INCONCLUSIVO );
-
-            if(vetorTestes[posicaoTeste].resultado == 1)
+            if(vetorTestes[posicaoTeste].resultado != -1)
             {
-                vetorMembrosCAcademica[posicaoNUtente].estadoConfinamento = ISOLAMENTOPROFILATICO;
-                vetorMembrosCAcademica[posicaoNUtente].dataConfinamento = vetorTestes[posicaoTeste].dataTeste;
-
+                printf("\nERRO : o resultado do teste indicado ja foi registado");
             }
-            else if(vetorTestes[posicaoTeste].resultado == 2)
+            else
             {
-                vetorMembrosCAcademica[posicaoNUtente].estadoConfinamento = QUARENTENA;
-                vetorMembrosCAcademica[posicaoNUtente].dataConfinamento = vetorTestes[posicaoTeste].dataTeste;
 
+
+                posicaoNUtente = procuraNumeroSNS(vetorMembrosCAcademica, quantMembrosComunidade, vetorTestes[posicaoTeste].numUtenteSaude);
+
+                vetorTestes[posicaoTeste].horaColheita = lerHora("\nIndique a hora em que foi colhida a amostra : ",0,MAXHORAS);
+                vetorTestes[posicaoTeste].duracaoMinutos = lerInteiro("\nIndique o tempo de duracao em minutos",0,MAXMINUTOSTESTE);
+
+
+                vetorTestes[posicaoTeste].resultado = lerInteiro("\nIndique o resultado do teste realizado : (0 - Negativo ; 1 - Positivo ; 2 - Inconclusivo)",NEGATIVO,INCONCLUSIVO );
+
+                if(vetorTestes[posicaoTeste].resultado == 1)
+                {
+                    vetorMembrosCAcademica[posicaoNUtente].estadoConfinamento = ISOLAMENTOPROFILATICO;
+                    vetorMembrosCAcademica[posicaoNUtente].dataConfinamento = vetorTestes[posicaoTeste].dataTeste;
+
+                }
+                else if(vetorTestes[posicaoTeste].resultado == 2)
+                {
+                    vetorMembrosCAcademica[posicaoNUtente].estadoConfinamento = QUARENTENA;
+                    vetorMembrosCAcademica[posicaoNUtente].dataConfinamento = vetorTestes[posicaoTeste].dataTeste;
+
+                }
+
+                vetorMembrosCAcademica[posicaoNUtente].quantTestesRealizados++;
+                vetorMembrosCAcademica[posicaoNUtente].quantTestesAgendados--;
+
+                logTestes(vetorTestes[posicaoTeste], vetorMembrosCAcademica[posicaoNUtente], "Teste Realizado");
             }
-
-            vetorMembrosCAcademica[posicaoNUtente].quantTestesRealizados++;
-            vetorMembrosCAcademica[posicaoNUtente].quantTestesAgendados--;
 
 
         }

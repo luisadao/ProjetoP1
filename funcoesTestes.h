@@ -22,6 +22,8 @@ void agendarTeste(tipoMembroCAcademica vetorMembrosCAcademica[], int quantMembro
 void logTestes(tipoTeste teste, tipoMembroCAcademica membro, char operacao[]);
 int procurarTeste(tipoTeste vetorTestes[], int quantTestesAgendados, int codigo);
 void registarResultadoTeste(tipoMembroCAcademica vetorMembrosCAcademica[], int quantMembrosComunidade, tipoTeste vetorTestes[],int *quantTestesAgendados, int *quantTestesRealizados);
+void listarTestes(tipoTeste vetorTestes[],int quantTotalTestes);
+void apresentarDadosTeste(tipoTeste vetorTeste[], int quantTotalTestes, tipoMembroCAcademica vetorMembrosCAcademica[], int quantMembrosCAcademica);
 
 
 #endif // FUNCOESTESTES_H_INCLUDED
