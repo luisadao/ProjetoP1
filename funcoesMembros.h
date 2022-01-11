@@ -7,19 +7,20 @@
 
 #include "estruturas.h"
 #include "funcoesConfinamento.h"
+#include "funcoesTestes.h"
 
 #define MINANOVACINA 2019
 #define MAXANOVACINA 2022
 
-#define MIN_NUM_UTENTE 1
-#define MAX_NUM_UTENTE 5
+#define MIN_NUM_UTENTE 11111111
+#define MAX_NUM_UTENTE 99999999
 
 
-int procuraNumeroSNS(tipoMembroCAcademica vetorMembrosCAcademica[LIMITE_MAX_MEMBROS], int quantMembrosComunidade, int numSNSProcurar);
-void lerEstadoConfinamento(int *quantMembrosComunidade, tipoMembroCAcademica vetorMembrosCAcademica[LIMITE_MAX_MEMBROS]);
-void lerVacinacao(int *quantMembrosComunidade, tipoMembroCAcademica vetorMembrosCAcademica[LIMITE_MAX_MEMBROS]);
-void adicionarMembro(int *quantMembrosComunidade, int  *quantMembrosVacinados, tipoMembroCAcademica vetorMembrosCAcademica[LIMITE_MAX_MEMBROS]);
-void listarDadosComunidade(int quantMembrosComunidade, tipoMembroCAcademica vetorMembrosCAcademica[LIMITE_MAX_MEMBROS]);
+int procuraNumeroSNS(tipoMembroCAcademica vetorMembrosCAcademica[], int quantMembrosComunidade, int numSNSProcurar);
+void lerEstadoConfinamento(int *quantMembrosComunidade, tipoMembroCAcademica vetorMembrosCAcademica[]);
+void lerVacinacao(int *quantMembrosComunidade, tipoMembroCAcademica vetorMembrosCAcademica[]);
+void adicionarMembro(int *quantMembrosComunidade, int  *quantMembrosVacinados, tipoMembroCAcademica vetorMembrosCAcademica[]);
+void listarDadosComunidade(int quantMembrosComunidade, tipoMembroCAcademica vetorMembrosCAcademica[], tipoTeste vetorTestes[], int quantTestesAgendados);
 
 
 

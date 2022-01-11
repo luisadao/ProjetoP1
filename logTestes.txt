@@ -1,0 +1,35 @@
+
+Operacao: Teste Agendado
+Codigo Teste : 1
+Nr. Membro : 11111111 - Joao Afonso
+Estado de vacinacao : Segunda Dose
+Data do Teste: 27-02-2022
+Tipo de Teste: Antigenio
+
+Operacao: Teste Agendado
+Codigo Teste : 2
+Nr. Membro : 11111111 - Joao Afonso
+Estado de vacinacao : Segunda Dose
+Data do Teste: 12-07-2021
+Tipo de Teste: Antigenio
+
+Operacao: Teste Realizado
+Codigo Teste : 1
+Nr. Membro : 11111111 - Joao Afonso
+Estado de vacinacao : Segunda Dose
+Data do Teste: 27-02-2022
+Tipo de Teste: Antigenio
+
+Resultado : Negativo
+Hora da colheira : 12:20
+Tempo decorrido (Em minutos): 14
+Operacao: Teste Realizado
+Codigo Teste : 1
+Nr. Membro : 11111111 - Joao Afonso
+Estado de vacinacao : Segunda Dose
+Data do Teste: 27-02-2022
+Tipo de Teste: Antigenio
+
+Resultado : Negativo
+Hora da colheira : 12:20
+Tempo decorrido (Em minutos): 12

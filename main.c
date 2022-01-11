@@ -32,7 +32,7 @@ int main()
             adicionarMembro(&quantMembrosComunidade, &quantMembrosVacinados,vetorMembrosCAcademica);
             break;
         case 'L':
-            listarDadosComunidade(quantMembrosComunidade, vetorMembrosCAcademica);
+            listarDadosComunidade(quantMembrosComunidade, vetorMembrosCAcademica,vetorTestes,quantTestesAgendados);
             break;
         case 'V':   //MENU VACINACAO
             do
@@ -141,10 +141,7 @@ int main()
             break;
 
         case 'S':
-            for(int i=0; i<quantMembrosComunidade; i++)
-            {
-                printf("\n\nSAIDA NUMERO DE SAUDE DO UTENTE %d\nNOME %s",vetorMembrosCAcademica[i].numUtenteSaude, vetorMembrosCAcademica[i].nome );
-            }
+
             break;
 
         default:

@@ -37,8 +37,6 @@ void adicionarMembro(int *quantMembrosComunidade, int  *quantMembrosVacinados, t
                 lerString("\nIntroduza o nome do utente : ",vetorMembrosCAcademica[(*quantMembrosComunidade)].nome, LIMITE_MAX_NOME, SIM);
                 vetorMembrosCAcademica[(*quantMembrosComunidade)].tipoMembro = lerInteiro("\nIndique o seu tipo de utente : \n1 - Estudante\n2 - Docente\n3 - Técnico\n", 1,3);
                 vetorMembrosCAcademica[(*quantMembrosComunidade)].anoNascimento = lerInteiro("\nIntroduza o ano de nascimento : ",MINANONASCIMENTO, MAXANONASCIMENTO);
-                //  vetorMembrosCAcademica[(*quantMembrosComunidade)].estadoConfinamento = lerInteiro("\nIndique o seu estado de confinamento (1 - não confinado , 2 - quarentena , 3 - isolamento profilatico) : ",1,3);
-                //  vetorMembrosCAcademica[(*quantMembrosComunidade)].estadoVacina = lerInteiro("\nIndique o estado da sua vacinacao :\n0 - Nao Vacinado\n1 - Primeira Dose\n2 - Segunda Dose\n3 - Terceira Dose\n",1,3);
                 lerEstadoConfinamento(quantMembrosComunidade, vetorMembrosCAcademica);
                 lerVacinacao(quantMembrosComunidade, vetorMembrosCAcademica);
                 if(vetorMembrosCAcademica[(*quantMembrosComunidade)].estadoVacina)  // OU  vetorMembrosCAcademica[(*quantMembrosComunidade)].estadoVacina != 0
@@ -66,7 +64,8 @@ void lerEstadoConfinamento(int *quantMembrosComunidade, tipoMembroCAcademica vet
 {
 
     vetorMembrosCAcademica[(*quantMembrosComunidade)].estadoConfinamento = lerInteiro("\nIndique o seu estado de confinamento (0 - Nao Confinado , 1 - Quarentena , 2 - Isolamento Profilatico) : ",0,2);
-    if(vetorMembrosCAcademica[(*quantMembrosComunidade)].estadoConfinamento == 1 || vetorMembrosCAcademica[(*quantMembrosComunidade)].estadoConfinamento  == 2){
+    if(vetorMembrosCAcademica[(*quantMembrosComunidade)].estadoConfinamento == 1 || vetorMembrosCAcademica[(*quantMembrosComunidade)].estadoConfinamento  == 2)
+    {
         vetorMembrosCAcademica[(*quantMembrosComunidade)].dataConfinamento = lerData("\nIndique a data em que entrou em confinamento : ",MINANOCONFINAMENTO,MAXANOCONFINAMENTO);
     }
 
@@ -98,10 +97,10 @@ int procuraNumeroSNS(tipoMembroCAcademica vetorMembrosCAcademica[], int quantMem
 
 }
 
-void listarDadosComunidade(int quantMembrosComunidade, tipoMembroCAcademica vetorMembrosCAcademica[])
+void listarDadosComunidade(int quantMembrosComunidade, tipoMembroCAcademica vetorMembrosCAcademica[], tipoTeste vetorTestes[], int quantTestesAgendados)
 {
 
-    int i;
+    int i, quantTestesRealizadosMembro;
 
     if(quantMembrosComunidade == 0)
     {
@@ -170,28 +169,39 @@ void listarDadosComunidade(int quantMembrosComunidade, tipoMembroCAcademica veto
                 escreverData(vetorMembrosCAcademica[i].dataUltimaVacina);
             }
 
-//            printf("\nQuantidade Testes Realizados : %d", vetorMembrosCAcademica[i].quantTestesRealizados);
+            printf("\nQuantidade Testes Realizados : %d", vetorMembrosCAcademica[i].quantTestesRealizados);
 
-            /*if(vetorMembrosCAcademica[i].quantTestesAgendados != 0)
+            if(vetorMembrosCAcademica[i].quantTestesAgendados != 0)
             {
-                for(int iTestes=0; iTestes < vetorMembrosCAcademica[i].testesAgendados; iTestes++)
+                for(int iTestes=0; iTestes < quantTestesAgendados; iTestes++)
                 {
-                    printf("\nTipo de Teste : ");
 
-                    switch(vetorMembrosCAcademica[i].testesAgendados[iTestes].tipoDeTeste)
+
+                    if(vetorMembrosCAcademica[i].numUtenteSaude == vetorTestes[iTestes].numUtenteSaude && vetorTestes[iTestes].resultado == -1)
                     {
-                    case 1:
-                        printf("Antigenio");
-                        break;
-                    case 2:
-                        printf("PCR");
-                        break;
+                        printf("\nTipo de Teste : ");
+
+                        switch(vetorTestes[iTestes].tipoDeTeste)
+                        {
+                        case 1:
+                            printf("Antigenio");
+                            break;
+                        case 2:
+                            printf("PCR");
+                            break;
+                        }
+                        printf("\nData Teste Agendado : ");
+                        escreverData(vetorTestes[iTestes].dataTeste);
+
+
+
                     }
 
-                    escreverData(vetorMembrosCAcademica[i].testesAgendados[iTestes].dataTeste);
+
+
 
                 }
-            }*/
+            }
         }
     }
 }
