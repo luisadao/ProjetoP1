@@ -7,9 +7,12 @@
 #include "estruturas.h"
 #include "funcoesGerais.h"
 
-void gravaFicheiroBinario(tipoMembroCAcademica vetorMembrosCAcademica[], int quantMembrosComunidade);
-void lerFicheiroBinario(tipoMembroCAcademica vetorMembrosCAcademica[], int *quantMembrosComunidade);
-void gravarFicheiroTexto(tipoMembroCAcademica vetorMembrosCAcademica[], int quantMembrosComunidade);
+void gravaFicheiroBinarioComunidade(tipoMembroCAcademica vetorMembrosCAcademica[], int quantMembrosComunidade, int quantMembrosVacinados);
+void lerFicheiroBinarioComunidade(tipoMembroCAcademica vetorMembrosCAcademica[], int *quantMembrosComunidade, int *quantMembrosVacinados);
+void gravarFicheiroTextoComunidade(tipoMembroCAcademica vetorMembrosCAcademica[], int quantMembrosComunidade, int quantMembrosVacinados);
+void gravaFicheiroBinarioTestes(tipoTeste vetorTestes[], int quantTestesAgendados, int quantTestesRealizados);
+void lerFicheiroBinarioTestes(tipoTeste vetorTestes[], int *quantTestesAgendados, int *quantTestesRealizados);
+
 
 
 

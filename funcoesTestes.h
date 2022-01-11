@@ -24,6 +24,7 @@ int procurarTeste(tipoTeste vetorTestes[], int quantTestesAgendados, int codigo)
 void registarResultadoTeste(tipoMembroCAcademica vetorMembrosCAcademica[], int quantMembrosComunidade, tipoTeste vetorTestes[],int *quantTestesAgendados, int *quantTestesRealizados);
 void listarTestes(tipoTeste vetorTestes[],int quantTotalTestes);
 void apresentarDadosTeste(tipoTeste vetorTeste[], int quantTotalTestes, tipoMembroCAcademica vetorMembrosCAcademica[], int quantMembrosCAcademica);
+void alterarDataTeste(tipoTeste vetorTeste[], int quantTestesAgendados);
 
 
 #endif // FUNCOESTESTES_H_INCLUDED

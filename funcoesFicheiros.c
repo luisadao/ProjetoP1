@@ -1,6 +1,6 @@
 #include "funcoesFicheiros.h"
 
-void gravaFicheiroBinario(tipoMembroCAcademica vetorMembrosCAcademica[], int quantMembrosComunidade)
+void gravaFicheiroBinarioComunidade(tipoMembroCAcademica vetorMembrosCAcademica[], int quantMembrosComunidade, int quantMembrosVacinados)
 {
 
     FILE  *ficheiro;
@@ -30,15 +30,25 @@ void gravaFicheiroBinario(tipoMembroCAcademica vetorMembrosCAcademica[], int qua
             }
             else
             {
-                controlo = fwrite(vetorMembrosCAcademica, sizeof(tipoMembroCAcademica), quantMembrosComunidade, ficheiro);
-
-                if(controlo != quantMembrosComunidade)
+                controlo = fwrite(&quantMembrosVacinados, sizeof(int), 1, ficheiro);
+                if(controlo != 1)
                 {
                     printf("\nERRO (2): Falha na escrita dos dados\n");
+
                 }
                 else
                 {
-                    printf("\nGravacao dos dados efetuada com SUCESSO!\n");
+
+                    controlo = fwrite(vetorMembrosCAcademica, sizeof(tipoMembroCAcademica), quantMembrosComunidade, ficheiro);
+
+                    if(controlo != quantMembrosComunidade)
+                    {
+                        printf("\nERRO (3): Falha na escrita dos dados\n");
+                    }
+                    else
+                    {
+                        printf("\nGravacao dos dados efetuada com SUCESSO!\n");
+                    }
                 }
             }
 
@@ -50,7 +60,8 @@ void gravaFicheiroBinario(tipoMembroCAcademica vetorMembrosCAcademica[], int qua
 }
 
 
-void lerFicheiroBinario(tipoMembroCAcademica vetorMembrosCAcademica[], int *quantMembrosComunidade){
+void lerFicheiroBinarioComunidade(tipoMembroCAcademica vetorMembrosCAcademica[], int *quantMembrosComunidade, int *quantMembrosVacinados)
+{
 
     FILE  *ficheiro;
     int controlo;
@@ -72,16 +83,28 @@ void lerFicheiroBinario(tipoMembroCAcademica vetorMembrosCAcademica[], int *quan
         }
         else
         {
-            controlo = fread(vetorMembrosCAcademica, sizeof(tipoMembroCAcademica), *quantMembrosComunidade, ficheiro);
+            controlo = fread(quantMembrosVacinados, sizeof(int), 1, ficheiro);
 
-            if(controlo != *quantMembrosComunidade)
+            if(controlo != 1)
             {
                 printf("\nERRO (2): Falha na leitura dos dados\n");
-                *quantMembrosComunidade = 0;
+
             }
             else
             {
-                printf("\nLeitura dos dados efetuada com SUCESSO!\n");
+
+
+                controlo = fread(vetorMembrosCAcademica, sizeof(tipoMembroCAcademica), *quantMembrosComunidade, ficheiro);
+
+                if(controlo != *quantMembrosComunidade)
+                {
+                    printf("\nERRO (3): Falha na leitura dos dados\n");
+                    *quantMembrosComunidade = 0;
+                }
+                else
+                {
+                    printf("\nLeitura dos dados efetuada com SUCESSO!\n");
+                }
             }
         }
 
@@ -91,7 +114,7 @@ void lerFicheiroBinario(tipoMembroCAcademica vetorMembrosCAcademica[], int *quan
 }
 
 
-void gravarFicheiroTexto(tipoMembroCAcademica vetorMembrosCAcademica[], int quantMembrosComunidade)
+void gravarFicheiroTextoComunidade(tipoMembroCAcademica vetorMembrosCAcademica[], int quantMembrosComunidade, int quantMembrosVacinados)
 {
     int i;
 
@@ -123,8 +146,131 @@ void gravarFicheiroTexto(tipoMembroCAcademica vetorMembrosCAcademica[], int quan
             fprintf(ficheiro,"\n_________________________________________________\n");
         }
 
+        fprintf(ficheiro, "\nTotal de Membros Vacinados : %d",quantMembrosVacinados);
+
         fclose(ficheiro);
     }
+}
+
+
+void gravaFicheiroBinarioTestes(tipoTeste vetorTestes[], int quantTestesAgendados, int quantTestesRealizados)
+{
+
+    int quantTotalTestes=0;
+
+    FILE  *ficheiro;
+    int controlo;
+
+    if(quantTestesAgendados == 0 && quantTestesRealizados == 0)
+    {
+        printf("ERRO - nao existem dados dos testes a guardar\n");
+    }
+    else
+    {
+
+        ficheiro = fopen("dadosTestes.bin", "wb");
+
+        if (ficheiro == NULL)
+        {
+
+            printf("\nERRO : falha na abertura do ficheiro!\n");
+        }
+        else
+        {
+            controlo = fwrite(&quantTestesAgendados, sizeof(int), 1, ficheiro);
+
+            if(controlo != 1)
+            {
+                printf("\nERRO (1): Falha na escrita dos dados\n");
+            }
+            else
+            {
+                controlo = fwrite(&quantTestesRealizados, sizeof(int), 1, ficheiro);
+                if(controlo != 1)
+                {
+                    printf("\nERRO (2): Falha na escrita dos dados\n");
+
+                }
+                else
+                {
+
+                    quantTotalTestes = quantTestesRealizados+quantTestesAgendados;
+
+                    controlo = fwrite(vetorTestes, sizeof(tipoTeste), quantTotalTestes, ficheiro);
+
+                    if(controlo != quantTotalTestes)
+                    {
+                        printf("\nERRO (3): Falha na escrita dos dados\n");
+                    }
+                    else
+                    {
+                        printf("\nGravacao dos dados efetuada com SUCESSO!\n");
+                    }
+
+
+                }
+
+            }
+
+            fclose(ficheiro);
+        }
+
+    }
+
+}
+
+void lerFicheiroBinarioTestes(tipoTeste vetorTestes[], int *quantTestesAgendados, int *quantTestesRealizados)
+{
+
+    int quantTotalTestes = 0;
+
+    FILE  *ficheiro;
+    int controlo;
+
+    ficheiro = fopen("dadosTestes.bin", "rb");
+
+    if (ficheiro == NULL)
+    {
+        printf("\nERRO : falha na abertura do ficheiro!\n");
+    }
+    else
+    {
+        //controlo = fread(&*quantMembrosComunidade
+        controlo = fread(quantTestesAgendados, sizeof(int), 1, ficheiro);
+
+        if(controlo != 1)
+        {
+            printf("\nERRO (1): Falha na leitura dos dados\n");
+        }
+        else
+        {
+            controlo = fread(quantTestesRealizados, sizeof(int), 1, ficheiro);
+
+            if(controlo != 1)
+            {
+                printf("\nERRO (2): Falha na leitura dos dados\n");
+            }
+            else
+            {
+                quantTotalTestes = *quantTestesRealizados+*quantTestesAgendados;
+
+                controlo = fread(vetorTestes, sizeof(tipoTeste), quantTotalTestes, ficheiro); // controlo = fread(vetorTestes, sizeof(tipoTeste), (quantTestesRealizados+quantTestesAgendados), ficheiro);
+
+                if(controlo != quantTotalTestes)
+                {
+                    printf("\nERRO (3): Falha na leitura dos dados\n");
+                    quantTotalTestes = 0;
+                }
+                else
+                {
+                    printf("\nLeitura dos dados efetuada com SUCESSO!\n");
+                }
+            }
+        }
+
+        fclose(ficheiro);
+    }
+
 }
 
 

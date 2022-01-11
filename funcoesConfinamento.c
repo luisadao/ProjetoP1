@@ -20,9 +20,9 @@ void registarEstadoConfinamento(int quantMembrosComunidade, tipoMembroCAcademica
 
             printf("\nIndique o tipo de confinamento em que se encontra o utente %s.", vetorMembrosCAcademica[posicaoUtente].nome);
 
-            vetorMembrosCAcademica[posicaoUtente].estadoConfinamento = lerInteiro("(0 - Nao Confinado , 1 - Quarentena , 2 - Isolamento Profilatico)", 0, ISOLAMENTOPROFILATICO); // 0 serve como  escapatoria caso o utilizador entre sem querer na opcao ???
+            vetorMembrosCAcademica[posicaoUtente].estadoConfinamento = lerInteiro("(0 - Nao Confinado , 1 - Quarentena , 2 - Isolamento Profilatico)", NAOCONFINADO, ISOLAMENTOPROFILATICO); // 0 serve como  escapatoria caso o utilizador entre sem querer na opcao ???
 
-            if(vetorMembrosCAcademica[posicaoUtente].estadoConfinamento  == 1 || vetorMembrosCAcademica[posicaoUtente].estadoConfinamento  == 2 )
+            if(vetorMembrosCAcademica[posicaoUtente].estadoConfinamento  == QUARENTENA || vetorMembrosCAcademica[posicaoUtente].estadoConfinamento  == ISOLAMENTOPROFILATICO )
             {
                 vetorMembrosCAcademica[posicaoUtente].dataConfinamento = lerData("\nIndique a data em que entrou em confinamento : ",MINANOCONFINAMENTO,MAXANOCONFINAMENTO);
             }
@@ -94,7 +94,7 @@ void listarCasosConfinamento(int quantMembrosComunidade, tipoMembroCAcademica ve
         {
             if(vetorMembrosCAcademica[i].ultimoConfinamento != 0)
             {
-                printf("\nNome : %s",vetorMembrosCAcademica[i].nome);
+                printf("\n\nNome : %s",vetorMembrosCAcademica[i].nome);
                 printf("\nTipo de Confinamento : ");
                 switch(vetorMembrosCAcademica[i].ultimoConfinamento)
                 {
@@ -113,7 +113,15 @@ void listarCasosConfinamento(int quantMembrosComunidade, tipoMembroCAcademica ve
             }
             else
             {
-                printf("\nNome : %s",vetorMembrosCAcademica[i].nome);
+
+                if(vetorMembrosCAcademica[i].estadoConfinamento == 0)
+                {
+                    printf("\n\nNome : %s",vetorMembrosCAcademica[i].nome);
+                    printf("\nTipo de Confinamento : Nao se encontra em confinamento");
+
+                }else{
+
+                printf("\n\nNome : %s",vetorMembrosCAcademica[i].nome);
                 printf("\nTipo de Confinamento : ");
                 switch(vetorMembrosCAcademica[i].estadoConfinamento)
                 {
@@ -127,6 +135,7 @@ void listarCasosConfinamento(int quantMembrosComunidade, tipoMembroCAcademica ve
                 }
                 printf("\nData de Confinamento : ");
                 escreverData(vetorMembrosCAcademica[i].dataConfinamento);
+                }
 
 
 

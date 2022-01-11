@@ -93,6 +93,7 @@ int main()
                     agendarTeste(vetorMembrosCAcademica,  quantMembrosComunidade, vetorTestes, &quantTestesAgendados);
                     break;
                 case 'C':
+                    alterarDataTeste(vetorTestes,  quantTestesAgendados);
                     break;
                 case 'R':
                     registarResultadoTeste(vetorMembrosCAcademica, quantMembrosComunidade, vetorTestes, &quantTestesAgendados, &quantTestesRealizados);
@@ -119,11 +120,15 @@ int main()
                 switch(opcaoSecundaria)
                 {
                 case 'G':
-                    gravaFicheiroBinario(vetorMembrosCAcademica, quantMembrosComunidade);
-                    gravarFicheiroTexto(vetorMembrosCAcademica, quantMembrosComunidade);
+                    gravaFicheiroBinarioComunidade(vetorMembrosCAcademica, quantMembrosComunidade,quantMembrosVacinados);
+                    gravarFicheiroTextoComunidade(vetorMembrosCAcademica, quantMembrosComunidade,quantMembrosVacinados);
+                    gravaFicheiroBinarioTestes(vetorTestes,quantTestesAgendados,quantTestesRealizados);
+
                     break;
                 case 'L':
-                    lerFicheiroBinario(vetorMembrosCAcademica, &quantMembrosComunidade);
+                    lerFicheiroBinarioComunidade(vetorMembrosCAcademica, &quantMembrosComunidade,&quantMembrosVacinados);
+                    lerFicheiroBinarioTestes(vetorTestes, &quantTestesAgendados, &quantTestesRealizados);
+
                     break;
                 default:
                     printf("\nERRO - OPCAO INVALIDA\n");

@@ -1,6 +1,8 @@
 
 
 Membro (1)
-Nr.Utente: 1 - Nome: JOSE
-Membro Nao Vacinado
+Nr.Utente: 1 - Nome: joao
+Estado Vacina : 2 Dose		Data Avaliacao: 12 - 1 - 2022
 _________________________________________________
+
+Total de Membros Vacinados : 1

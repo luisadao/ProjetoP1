@@ -398,7 +398,42 @@ void registarResultadoTeste(tipoMembroCAcademica vetorMembrosCAcademica[], int q
 }
 
 
+void alterarDataTeste(tipoTeste vetorTeste[], int quantTestesAgendados)
+{
 
+    int posicaoTeste, codigoTeste;
+
+    if(quantTestesAgendados == 0)
+    {
+        printf("\nERRO : nao existem testes agendados");
+
+    }
+    else
+    {
+
+        codigoTeste = lerInteiro("\nIntroduza o codigo do teste que pretende alterar a data : ", 1, quantTestesAgendados);
+
+        posicaoTeste = procurarTeste(vetorTeste, quantTestesAgendados, codigoTeste);
+
+        if(posicaoTeste == -1)
+        {
+            printf("\nERRO : Nao foi encontrado teste com o codigo indicado.\n");
+
+        }
+        else if(vetorTeste[posicaoTeste].resultado != -1)
+        {
+            printf("\nERRO : Nao e possivel alterar a data de um teste que ja foi realizado.\n");
+        }
+        else
+        {
+           vetorTeste[posicaoTeste].dataTeste = lerData("\nIntroduza a nova data em que pretende realizar o teste : ",MINANO,MAXANO);
+           printf("\nO teste foi agendado para o dia : ");
+           escreverData(vetorTeste[posicaoTeste].dataTeste);
+        }
+
+    }
+
+}
 
 
 

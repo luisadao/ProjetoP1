@@ -6,7 +6,7 @@ char menuPrincipal(int quantMembrosComunidade, int quantTestesAgendados, int qua
 
 
     printf("\n\n\t\t\tPROGRAMA REGISTO SITUCAO COVID\n\n");
-    printf("\t\t\t\tMENU PRINCIPAL\n\n");
+    printf("\n\t\t\t\tMENU PRINCIPAL\n\n");
     printf("\nMembros da Comunidade : %d\t\t\tTestes Agendados  : %d\n",quantMembrosComunidade ,quantTestesAgendados);
     printf("\nMembros Vacinados : \t%d\t\t\tTestes Realizados : %d\n", quantMembrosVacinados, quantTestesRealizados);
     printf("\n\tOPCOES : \n\n");
