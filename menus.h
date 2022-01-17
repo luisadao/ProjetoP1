@@ -4,8 +4,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <ctype.h>
+#include "funcoesGerais.h"
 
 char menuPrincipal(int quantMembrosComunidade, int quantTestesAgendados, int quantMembrosVacinados, int quantTestesRealizados);
+char menuMembros(void);
 char menuVacinacao(void);
 char menuConfinamento(void);
 char menuTestes(void);

@@ -6,7 +6,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define MAXTESTESPCRDIA 15
+#define MAXTESTESPCRDIA 2
 #define TESTEANTIGENIO 1
 #define TESTEPCR 2
 #define NEGATIVO 0
@@ -16,13 +16,14 @@
 
 
 #include "estruturas.h"
+#include "funcoesGerais.h"
 #include "funcoesMembros.h"
 
-void agendarTeste(tipoMembroCAcademica vetorMembrosCAcademica[], int quantMembrosComunidade, tipoTeste vetorTestes[],int *quantTestesAgendados);
+tipoTeste* agendarTeste(tipoMembroCAcademica vetorMembrosCAcademica[], int quantMembrosComunidade, tipoTeste vetorTestes[],int *quantTestesAgendados, int quantTestesRealizados);
 void logTestes(tipoTeste teste, tipoMembroCAcademica membro, char operacao[]);
-int procurarTeste(tipoTeste vetorTestes[], int quantTestesAgendados, int codigo);
+int procurarTeste(tipoTeste vetorTestes[], int quantTestesAgendados, char designacaoTeste[]);
 void registarResultadoTeste(tipoMembroCAcademica vetorMembrosCAcademica[], int quantMembrosComunidade, tipoTeste vetorTestes[],int *quantTestesAgendados, int *quantTestesRealizados);
-void listarTestes(tipoTeste vetorTestes[],int quantTotalTestes);
+void listarTestes(tipoTeste vetorTestes[],int quantTestesAgendados, int quantTestesRealizados);
 void apresentarDadosTeste(tipoTeste vetorTeste[], int quantTotalTestes, tipoMembroCAcademica vetorMembrosCAcademica[], int quantMembrosCAcademica);
 void alterarDataTeste(tipoTeste vetorTeste[], int quantTestesAgendados);
 

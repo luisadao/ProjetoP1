@@ -5,7 +5,7 @@ void registarEstadoVacinacao(int quantMembrosComunidade, tipoMembroCAcademica ve
 {
 
     int posicaoNUtente, tempNUtente;
-    char msg[MAXSTRING];
+//    char msg[MAXSTRING];
 
     if(quantMembrosComunidade == 0)
     {
@@ -40,7 +40,7 @@ void atualizarEstadoVacinacao(int quantMembrosComunidade, tipoMembroCAcademica v
 {
 
     int posicaoNUtente, tempNUtente, confirmacao3Dose=0;
-    char msg[MAXSTRING];
+  // char msg[MAXSTRING];
 
     if(quantMembrosComunidade == 0)
     {
@@ -54,7 +54,7 @@ void atualizarEstadoVacinacao(int quantMembrosComunidade, tipoMembroCAcademica v
 
         if(posicaoNUtente != -1)  //encontrou logo pergunta que dose quer registar
         {
-            //sprintf(msg, "\nDeseja registar a primeira dose de vacinacao neste utente %d ", tempNUtente); CRASHA O PROGRAMA
+            //sprintf(msg, "\nDeseja registar a primeira dose de vacinacao neste utente %d ", tempNUtente); //CRASHA O PROGRAMA
 
             if(vetorMembrosCAcademica[posicaoNUtente].estadoVacina == 0)
             {
@@ -105,5 +105,12 @@ void atualizarEstadoVacinacao(int quantMembrosComunidade, tipoMembroCAcademica v
 
     }
 
+
+}
+
+void lerVacinacao(int *quantMembrosComunidade, tipoMembroCAcademica vetorMembrosCAcademica[])
+{
+
+    vetorMembrosCAcademica[(*quantMembrosComunidade)].estadoVacina = lerInteiro("\nIndique o estado da sua vacinacao :\n0 - Nao Vacinado\n1 - Primeira Dose\n2 - Segunda Dose\n3 - Terceira Dose\n",0,3);
 
 }

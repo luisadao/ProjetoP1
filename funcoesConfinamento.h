@@ -21,6 +21,7 @@
 void registarEstadoConfinamento(int quantMembrosComunidade , tipoMembroCAcademica vetorMembrosCAcademica[LIMITE_MAX_MEMBROS]);
 void atualizarEstadoConfinamento(int quantMembrosComunidade, tipoMembroCAcademica vetorMembrosCAcademica[LIMITE_MAX_MEMBROS]);
 void listarCasosConfinamento(int quantMembrosComunidade, tipoMembroCAcademica vetorMembrosCAcademica[LIMITE_MAX_MEMBROS]);
+void lerEstadoConfinamento(int *quantMembrosComunidade, tipoMembroCAcademica vetorMembrosCAcademica[]);
 
 
 

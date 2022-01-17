@@ -36,6 +36,10 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="funcoesConfinamento.h" />
+		<Unit filename="funcoesEstatisticas.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="funcoesEstatisticas.h" />
 		<Unit filename="funcoesFicheiros.c">
 			<Option compilerVar="CC" />
 		</Unit>

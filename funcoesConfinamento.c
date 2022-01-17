@@ -4,7 +4,7 @@
 void registarEstadoConfinamento(int quantMembrosComunidade, tipoMembroCAcademica vetorMembrosCAcademica[LIMITE_MAX_MEMBROS])
 {
 
-    int numUtenteTemp, posicaoUtente,aux;
+    int numUtenteTemp, posicaoUtente;//aux;
 
     if(quantMembrosComunidade == 0)
     {
@@ -41,7 +41,7 @@ void registarEstadoConfinamento(int quantMembrosComunidade, tipoMembroCAcademica
 void atualizarEstadoConfinamento(int quantMembrosComunidade, tipoMembroCAcademica vetorMembrosCAcademica[LIMITE_MAX_MEMBROS])
 {
 
-    int numUtenteTemp, posicaoUtente,aux;
+    int numUtenteTemp, posicaoUtente;
 
     if(quantMembrosComunidade == 0)
     {
@@ -49,13 +49,11 @@ void atualizarEstadoConfinamento(int quantMembrosComunidade, tipoMembroCAcademic
     }
     else
     {
-        numUtenteTemp= lerInteiro("Indique o nr. de utente de quem pretende atualizar o confinamento : ", MIN_NUM_UTENTE,MAX_NUM_UTENTE);
+        numUtenteTemp = lerInteiro("Indique o nr. de utente de quem pretende atualizar o confinamento : ", MIN_NUM_UTENTE,MAX_NUM_UTENTE);
         posicaoUtente = procuraNumeroSNS(vetorMembrosCAcademica,quantMembrosComunidade,numUtenteTemp);
 
         if(posicaoUtente != -1)  // encontrou o utente
         {
-
-            aux = vetorMembrosCAcademica[posicaoUtente].estadoConfinamento ;
             vetorMembrosCAcademica[posicaoUtente].estadoConfinamento = lerInteiro("Deseja terminar o seu estado de confinamento (0 - NAO ; 1 - SIM)", NAO, SIM);
             if(vetorMembrosCAcademica[posicaoUtente].estadoConfinamento == 1)
             {
@@ -69,10 +67,7 @@ void atualizarEstadoConfinamento(int quantMembrosComunidade, tipoMembroCAcademic
         {
             printf("\nERROR - Nao existe utente com o numero %d.", numUtenteTemp);
         }
-
-
     }
-
 }
 
 
@@ -137,12 +132,21 @@ void listarCasosConfinamento(int quantMembrosComunidade, tipoMembroCAcademica ve
                 escreverData(vetorMembrosCAcademica[i].dataConfinamento);
                 }
 
-
-
-
             }
 
         }
 
     }
+
+}
+
+void lerEstadoConfinamento(int *quantMembrosComunidade, tipoMembroCAcademica vetorMembrosCAcademica[])
+{
+
+    vetorMembrosCAcademica[(*quantMembrosComunidade)].estadoConfinamento = lerInteiro("\nIndique o seu estado de confinamento (0 - Nao Confinado , 1 - Quarentena , 2 - Isolamento Profilatico) : ",0,2);
+    if(vetorMembrosCAcademica[(*quantMembrosComunidade)].estadoConfinamento == 1 || vetorMembrosCAcademica[(*quantMembrosComunidade)].estadoConfinamento  == 2)
+    {
+        vetorMembrosCAcademica[(*quantMembrosComunidade)].dataConfinamento = lerData("\nIndique a data em que entrou em confinamento : ",MINANOCONFINAMENTO,MAXANOCONFINAMENTO);
+    }
+
 }

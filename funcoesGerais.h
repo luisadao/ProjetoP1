@@ -1,6 +1,11 @@
 #ifndef FUNCOESGERAIS_H_INCLUDED
 #define FUNCOESGERAIS_H_INCLUDED
 
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <ctype.h>
+
 #define SIM 1
 #define NAO 0
 

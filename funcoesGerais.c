@@ -1,6 +1,4 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
+
 #include "funcoesGerais.h"
 
 
@@ -69,11 +67,12 @@ char lerCaracter(void)  //FUCAO QUE LE E DEVOLVE UM CARACTER EM MAISCULA
     char opcao;
 
     scanf(" %c", &opcao);
+    limpaBuffer();
     opcao = toupper(opcao);
 
     return opcao;
 
-};
+}
 
 
 
@@ -257,6 +256,7 @@ int comparaData(tipoData data1, tipoData data2)
         igual = 1;
 
     }
+
     return igual;
 
 

@@ -219,7 +219,7 @@ void gravaFicheiroBinarioTestes(tipoTeste vetorTestes[], int quantTestesAgendado
 
 }
 
-void lerFicheiroBinarioTestes(tipoTeste vetorTestes[], int *quantTestesAgendados, int *quantTestesRealizados)
+tipoTeste* lerFicheiroBinarioTestes(tipoTeste vetorTestes[], int *quantTestesAgendados, int *quantTestesRealizados)
 {
 
     int quantTotalTestes = 0;
@@ -235,7 +235,6 @@ void lerFicheiroBinarioTestes(tipoTeste vetorTestes[], int *quantTestesAgendados
     }
     else
     {
-        //controlo = fread(&*quantMembrosComunidade
         controlo = fread(quantTestesAgendados, sizeof(int), 1, ficheiro);
 
         if(controlo != 1)
@@ -244,6 +243,7 @@ void lerFicheiroBinarioTestes(tipoTeste vetorTestes[], int *quantTestesAgendados
         }
         else
         {
+
             controlo = fread(quantTestesRealizados, sizeof(int), 1, ficheiro);
 
             if(controlo != 1)
@@ -254,23 +254,33 @@ void lerFicheiroBinarioTestes(tipoTeste vetorTestes[], int *quantTestesAgendados
             {
                 quantTotalTestes = *quantTestesRealizados+*quantTestesAgendados;
 
-                controlo = fread(vetorTestes, sizeof(tipoTeste), quantTotalTestes, ficheiro); // controlo = fread(vetorTestes, sizeof(tipoTeste), (quantTestesRealizados+quantTestesAgendados), ficheiro);
-
-                if(controlo != quantTotalTestes)
+                vetorTestes = realloc(vetorTestes, (quantTotalTestes)*sizeof(tipoTeste));
+                if(vetorTestes == NULL && quantTotalTestes != 0)
                 {
-                    printf("\nERRO (3): Falha na leitura dos dados\n");
-                    quantTotalTestes = 0;
+                    printf("\nERRO : Ocorreu um erro durante a alocacao de memoria.\n");
+                    *quantTestesRealizados=0;
+                    *quantTestesAgendados=0;
                 }
                 else
                 {
-                    printf("\nLeitura dos dados efetuada com SUCESSO!\n");
+
+                    controlo = fread(vetorTestes, sizeof(tipoTeste), quantTotalTestes, ficheiro); // controlo = fread(vetorTestes, sizeof(tipoTeste), (quantTestesRealizados+quantTestesAgendados), ficheiro);
+
+                   if(controlo != quantTotalTestes)
+                    {
+                        printf("\nERRO (3): Falha na leitura dos dados\n");
+                    }
+                    else
+                    {
+                        printf("\nLeitura dos dados efetuada com SUCESSO!\n");
+                   }
                 }
             }
         }
 
         fclose(ficheiro);
     }
-
+    return vetorTestes;
 }
 
 

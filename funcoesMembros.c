@@ -5,7 +5,7 @@
 void adicionarMembro(int *quantMembrosComunidade, int  *quantMembrosVacinados, tipoMembroCAcademica vetorMembrosCAcademica[])
 {
 
-    char nomeTemp[LIMITE_MAX_NOME];
+//    char nomeTemp[LIMITE_MAX_NOME];
     int opcaoNovoMembro=NAO, posMembro;
 
     if((*quantMembrosComunidade) < LIMITE_MAX_MEMBROS)
@@ -19,16 +19,7 @@ void adicionarMembro(int *quantMembrosComunidade, int  *quantMembrosVacinados, t
 
             if(posMembro != -1)
             {
-
                 printf("\nERROR - Ja existe um membro com esse numero de utente de saude inscrito. \n");
-                opcaoNovoMembro = lerInteiro("\nDeseja inserir um numero de utente de saude novo ? (0 - NAO , 1 - SIM)\n",NAO,SIM);
-                //CASO NAO ARRANJAR FORMA DE SAIR DA FUNCAO
-
-                if(opcaoNovoMembro == 0)
-                {
-                    return 1;
-
-                }
 
             }
             else
@@ -60,23 +51,9 @@ void adicionarMembro(int *quantMembrosComunidade, int  *quantMembrosVacinados, t
 }
 
 
-void lerEstadoConfinamento(int *quantMembrosComunidade, tipoMembroCAcademica vetorMembrosCAcademica[])
-{
 
-    vetorMembrosCAcademica[(*quantMembrosComunidade)].estadoConfinamento = lerInteiro("\nIndique o seu estado de confinamento (0 - Nao Confinado , 1 - Quarentena , 2 - Isolamento Profilatico) : ",0,2);
-    if(vetorMembrosCAcademica[(*quantMembrosComunidade)].estadoConfinamento == 1 || vetorMembrosCAcademica[(*quantMembrosComunidade)].estadoConfinamento  == 2)
-    {
-        vetorMembrosCAcademica[(*quantMembrosComunidade)].dataConfinamento = lerData("\nIndique a data em que entrou em confinamento : ",MINANOCONFINAMENTO,MAXANOCONFINAMENTO);
-    }
 
-}
 
-void lerVacinacao(int *quantMembrosComunidade, tipoMembroCAcademica vetorMembrosCAcademica[])
-{
-
-    vetorMembrosCAcademica[(*quantMembrosComunidade)].estadoVacina = lerInteiro("\nIndique o estado da sua vacinacao :\n0 - Nao Vacinado\n1 - Primeira Dose\n2 - Segunda Dose\n3 - Terceira Dose\n",0,3);
-
-}
 
 int procuraNumeroSNS(tipoMembroCAcademica vetorMembrosCAcademica[], int quantMembrosComunidade, int numSNSProcurar)
 {
@@ -99,8 +76,8 @@ int procuraNumeroSNS(tipoMembroCAcademica vetorMembrosCAcademica[], int quantMem
 
 void listarDadosComunidade(int quantMembrosComunidade, tipoMembroCAcademica vetorMembrosCAcademica[], tipoTeste vetorTestes[], int quantTestesAgendados)
 {
-
-    int i, quantTestesRealizadosMembro;
+//quantTestesRealizadosMembro
+    int i;
 
     if(quantMembrosComunidade == 0)
     {

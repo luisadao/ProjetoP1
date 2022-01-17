@@ -10,6 +10,7 @@
 #include "funcoesConfinamento.h"
 #include "funcoesFicheiros.h"
 #include "funcoesTestes.h"
+#include "funcoesEstatisticas.h"
 
 
 int main()
@@ -17,7 +18,7 @@ int main()
     char opcaoPrincipal, opcaoSecundaria;
     int quantMembrosComunidade = 0, quantTestesAgendados = 0, quantMembrosVacinados = 0, quantTestesRealizados = 0, quantTotalTestes=0;
     tipoMembroCAcademica vetorMembrosCAcademica[LIMITE_MAX_MEMBROS];
-    tipoTeste vetorTestes[20];
+    tipoTeste *vetorTestes=NULL;
 
 
 
@@ -28,11 +29,29 @@ int main()
         switch(opcaoPrincipal)
         {
 
-        case 'A':
-            adicionarMembro(&quantMembrosComunidade, &quantMembrosVacinados,vetorMembrosCAcademica);
-            break;
-        case 'L':
-            listarDadosComunidade(quantMembrosComunidade, vetorMembrosCAcademica,vetorTestes,quantTestesAgendados);
+        case 'M':   //MENU MEMBROS
+            do
+            {
+                opcaoSecundaria = menuMembros();
+
+                switch(opcaoSecundaria)
+                {
+                case 'A':
+                    adicionarMembro(&quantMembrosComunidade, &quantMembrosVacinados,vetorMembrosCAcademica);
+                    break;
+                case 'L':
+                    listarDadosComunidade(quantMembrosComunidade, vetorMembrosCAcademica,vetorTestes,quantTestesAgendados);
+                    break;
+                case 'S':
+
+                    break;
+                default:
+                    printf("\nERRO - OPCAO INVALIDA\n");
+
+                }
+
+            }
+            while(opcaoSecundaria != 'S');
             break;
         case 'V':   //MENU VACINACAO
             do
@@ -46,6 +65,9 @@ int main()
                     break;
                 case 'A':
                     atualizarEstadoVacinacao(quantMembrosComunidade, vetorMembrosCAcademica);
+                    break;
+                case 'S':
+
                     break;
                 default:
                     printf("\nERRO - OPCAO INVALIDA\n");
@@ -70,6 +92,9 @@ int main()
                 case 'L':
                     listarCasosConfinamento(quantMembrosComunidade, vetorMembrosCAcademica);
                     break;
+                case 'S':
+
+                    break;
                 default:
                     printf("\nERRO - OPCAO INVALIDA\n");
 
@@ -80,17 +105,15 @@ int main()
         case 'T':
             do  //MENU TESTES
             {
-                quantTotalTestes = quantTestesAgendados + quantTestesRealizados;
-
                 opcaoSecundaria = menuTestes();
 
                 switch(opcaoSecundaria)
                 {
                 case 'L':
-                    listarTestes(vetorTestes, quantTotalTestes);
+                    listarTestes(vetorTestes, quantTestesAgendados,quantTestesRealizados);
                     break;
                 case 'A':
-                    agendarTeste(vetorMembrosCAcademica,  quantMembrosComunidade, vetorTestes, &quantTestesAgendados);
+                    vetorTestes = agendarTeste(vetorMembrosCAcademica,  quantMembrosComunidade, vetorTestes, &quantTestesAgendados, quantTestesRealizados);
                     break;
                 case 'C':
                     alterarDataTeste(vetorTestes,  quantTestesAgendados);
@@ -99,12 +122,13 @@ int main()
                     registarResultadoTeste(vetorMembrosCAcademica, quantMembrosComunidade, vetorTestes, &quantTestesAgendados, &quantTestesRealizados);
                     break;
                 case 'M':
+                    quantTotalTestes = quantTestesAgendados + quantTestesRealizados;
                     apresentarDadosTeste( vetorTestes,  quantTotalTestes,  vetorMembrosCAcademica,  quantMembrosComunidade);
                     break;
-
+                case 'S':
+                    break;
                 default:
                     printf("\nERRO - OPCAO INVALIDA\n");
-
                 }
 
 
@@ -127,7 +151,10 @@ int main()
                     break;
                 case 'L':
                     lerFicheiroBinarioComunidade(vetorMembrosCAcademica, &quantMembrosComunidade,&quantMembrosVacinados);
-                    lerFicheiroBinarioTestes(vetorTestes, &quantTestesAgendados, &quantTestesRealizados);
+                    vetorTestes = lerFicheiroBinarioTestes(vetorTestes, &quantTestesAgendados, &quantTestesRealizados);
+
+                    break;
+                case 'S':
 
                     break;
                 default:
@@ -138,6 +165,9 @@ int main()
             while(opcaoSecundaria != 'S');
 
 
+            break;
+        case 'E':
+            apresentarDadosEstatisticos(vetorMembrosCAcademica, quantMembrosComunidade,vetorTestes,quantTestesAgendados,quantTestesRealizados);
             break;
 
         case 'S':
@@ -150,6 +180,8 @@ int main()
 
     }
     while(opcaoPrincipal != 'S');
+
+    free(vetorTestes);
 
     return 0;
 }

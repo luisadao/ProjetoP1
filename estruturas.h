@@ -8,7 +8,8 @@
 typedef struct
 {
 
-    int codigoTeste; // automaticamente gerado
+    //int codigoTeste; // automaticamente gerado
+    char designacaoTeste[MAXSTRING];
     int tipoDeTeste; // 1 - Antigenio 2 - PCR
     tipoData dataTeste;
     int numUtenteSaude;

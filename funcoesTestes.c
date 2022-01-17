@@ -2,7 +2,8 @@
 
 void apresentarDadosTeste(tipoTeste vetorTestes[], int quantTotalTestes, tipoMembroCAcademica vetorMembrosCAcademica[], int quantMembrosComunidade)
 {
-    int posicaoTeste=0, codigoTeste=0, posicaoUtente=0, i=0, contaTestesPositivos=0;
+    int posicaoTeste=0,  posicaoUtente=0, i=0, contaTestesPositivos=0;
+    char designacaoTeste[MAXSTRING];
 
     if(quantTotalTestes == 0)
     {
@@ -11,11 +12,13 @@ void apresentarDadosTeste(tipoTeste vetorTestes[], int quantTotalTestes, tipoMem
     }
     else
     {
-        codigoTeste = lerInteiro("\nIndique o codigo do teste que pretende visualisar os dados : ", 1,quantTotalTestes);
+        lerString("\nIndique a designacao do teste que pretende visualisar os dados : ",designacaoTeste, MAXSTRING,SIM);
 
-        posicaoTeste = procurarTeste(vetorTestes, quantTotalTestes, codigoTeste);
+        posicaoTeste = procurarTeste(vetorTestes, quantTotalTestes, designacaoTeste);
 
-        posicaoUtente = procuraNumeroSNS(vetorMembrosCAcademica,quantMembrosComunidade,vetorTestes[posicaoTeste].numUtenteSaude );
+        if(posicaoTeste != -1){
+
+        posicaoUtente = procuraNumeroSNS(vetorMembrosCAcademica,quantMembrosComunidade,vetorTestes[posicaoTeste].numUtenteSaude);
 
         printf("\nNome : %s",vetorMembrosCAcademica[posicaoUtente].nome);
         printf("\nTipo Membro : ");
@@ -79,33 +82,35 @@ void apresentarDadosTeste(tipoTeste vetorTestes[], int quantTotalTestes, tipoMem
         }
 
         printf("%d",contaTestesPositivos);
+        }else{
+            printf("\nERRO : Nao foi encontrado um teste com a designacao indicada.\n");
+
+        }
 
 
         //procurar em todos os testes do utilizador quais os que estao positivos
-
-
-
     }
 
 }
 
-void listarTestes(tipoTeste vetorTestes[],int quantTotalTestes)
+void listarTestes(tipoTeste vetorTestes[],int quantTestesAgendados, int quantTestesRealizados)
 {
-    int i;
+    int i, quantTotalTestes;
 
     printf("\n\n------------- LISTAR TESTES -------------\n");
 
-    if(quantTotalTestes == 0)
+    if(quantTestesAgendados == 0 && quantTestesRealizados == 0)
     {
         printf("\nERRO : nao existem testes registados");
 
     }
     else
     {
-
+        quantTotalTestes = quantTestesAgendados + quantTestesRealizados;
         for(i=0; i < quantTotalTestes ; i++)
         {
-            printf("\n\nCodigo : %d",vetorTestes[i].codigoTeste);
+
+            printf("\n\nDesignacao : %s",vetorTestes[i].designacaoTeste);
             printf("\nTipo : ");
             switch(vetorTestes[i].tipoDeTeste)
             {
@@ -147,10 +152,13 @@ void listarTestes(tipoTeste vetorTestes[],int quantTotalTestes)
 }
 
 
-void agendarTeste(tipoMembroCAcademica vetorMembrosCAcademica[], int quantMembrosComunidade, tipoTeste vetorTestes[],int *quantTestesAgendados)
+tipoTeste* agendarTeste(tipoMembroCAcademica vetorMembrosCAcademica[], int quantMembrosComunidade, tipoTeste vetorTestes[],int *quantTestesAgendados, int quantTestesRealizados)
 {
 
-    int nrMembro, posicaoNUtente,i,quantTestesPCRDia=0;
+    int nrMembro, posicaoNUtente,i,quantTestesPCRDia=0, posTeste=0,quantTestesTotal=0,datasIguais=0;
+    tipoTeste *vetorTestesBackup = vetorTestes;
+
+
 
     if(quantMembrosComunidade == 0)
     {
@@ -160,7 +168,7 @@ void agendarTeste(tipoMembroCAcademica vetorMembrosCAcademica[], int quantMembro
     {
         printf("\n------------- AGENDAR TESTE -------------\n");
 
-        nrMembro = lerInteiro("\nInsira o Nº de utente do Membro que pretende agendar um teste.",MIN_NUM_UTENTE,MAX_NUM_UTENTE);
+        nrMembro = lerInteiro("\nInsira o N� de utente do Membro que pretende agendar um teste.",MIN_NUM_UTENTE,MAX_NUM_UTENTE);
         posicaoNUtente = procuraNumeroSNS(vetorMembrosCAcademica, quantMembrosComunidade, nrMembro);
 
         if(posicaoNUtente == -1)
@@ -169,64 +177,85 @@ void agendarTeste(tipoMembroCAcademica vetorMembrosCAcademica[], int quantMembro
         }
         else
         {
+            quantTestesTotal = *quantTestesAgendados + quantTestesRealizados;
 
-            if(*quantTestesAgendados == 0) // ainda nao ha reservas
+            vetorTestes = realloc(vetorTestes, (quantTestesTotal+1)*sizeof(tipoTeste));
+
+            if(vetorTestes == NULL)
             {
-                vetorTestes[*quantTestesAgendados].codigoTeste = 1;
+                printf("\nERRO : Nao foi possivel alocar o espaco de memoria.\n");
+                vetorTestes = vetorTestesBackup;
             }
             else
             {
-                vetorTestes[*quantTestesAgendados].codigoTeste = vetorTestes[*quantTestesAgendados-1].codigoTeste + 1;
-            }
 
-            printf("\nCodigo do Teste : %d\n",vetorTestes[*quantTestesAgendados].codigoTeste);
+                lerString("\nIndique a designacao do Teste : ", vetorTestes[quantTestesTotal].designacaoTeste,MAXSTRING,SIM);
 
-            vetorTestes[*quantTestesAgendados].numUtenteSaude = nrMembro;
+                posTeste = procurarTeste(vetorTestes,quantTestesTotal,vetorTestes[quantTestesTotal].designacaoTeste);
 
-            vetorTestes[*quantTestesAgendados].dataTeste = lerData("\nIndique a data em que pretende realizar o teste : ",MINANO,MAXANO);
-
-            vetorTestes[*quantTestesAgendados].tipoDeTeste = lerInteiro("\nIndique o tipo de teste que prentende agendar : (1 - Antigenio , 2 - PCR)",TESTEANTIGENIO,TESTEPCR);
-
-            if(vetorTestes[*quantTestesAgendados].tipoDeTeste == TESTEPCR)
-            {
-                // VERIFICAR SE O MAXIMO DE TESTES PCR FORAM ATINGIDOS
-                for(i=0; i<*quantTestesAgendados; i++)
+                if(posTeste != -1)
                 {
+                    printf("\nERRO : Ja existe um teste com a designacao indicada.");
+                }
+                else
+                {
+                    vetorTestes[quantTestesTotal].numUtenteSaude = nrMembro;
 
-                    if(vetorTestes[i].tipoDeTeste == TESTEPCR && vetorTestes[i].dataTeste.dia == vetorTestes[*quantTestesAgendados].dataTeste.dia && vetorTestes[i].dataTeste.mes == vetorTestes[*quantTestesAgendados].dataTeste.mes && vetorTestes[i].dataTeste.ano == vetorTestes[*quantTestesAgendados].dataTeste.ano)
+                    vetorTestes[quantTestesTotal].dataTeste = lerData("\nIndique a data em que pretende realizar o teste : ",MINANO,MAXANO);
+
+                    vetorTestes[quantTestesTotal].tipoDeTeste = lerInteiro("\nIndique o tipo de teste que prentende agendar : (1 - Antigenio , 2 - PCR)",TESTEANTIGENIO,TESTEPCR);
+
+                    if(vetorTestes[quantTestesTotal].tipoDeTeste == TESTEPCR)
                     {
-                        quantTestesPCRDia++;
-                        if(quantTestesPCRDia==MAXTESTESPCRDIA)
+                        // VERIFICAR SE O MAXIMO DE TESTES PCR FORAM ATINGIDOS
+                        for(i=0; i<quantTestesTotal; i++)
                         {
-                            printf("\nERRO : Nao e possivel agendar um teste do tipo PCR para o dia ");
-                            escreverData(vetorTestes[*quantTestesAgendados].dataTeste);
-                            i=*quantTestesAgendados;
-                            vetorTestes[*quantTestesAgendados] = vetorTestes[*quantTestesAgendados+1];
-                            return;  //perguntar á professora se podemos fazer este return aqui
+                            datasIguais = comparaData(vetorTestes[i].dataTeste, vetorTestes[quantTestesTotal].dataTeste);
+
+                            if(vetorTestes[i].tipoDeTeste == TESTEPCR && datasIguais == 1)
+                            {
+                                quantTestesPCRDia++;
+                                if(quantTestesPCRDia==MAXTESTESPCRDIA)
+                                {
+                                    printf("\nERRO : Nao e possivel agendar um teste do tipo PCR para o dia ");
+                                    escreverData(vetorTestes[quantTestesTotal].dataTeste);
+                                    i=quantTestesTotal;
+                                }
+                            }
 
                         }
+                        if(quantTestesPCRDia!=MAXTESTESPCRDIA)
+                        {
+                            vetorMembrosCAcademica[posicaoNUtente].quantTestesAgendados++;
+
+                            vetorTestes[quantTestesTotal].resultado = -1;
+
+                            printf("\nTotal de Testes agendados do Membro (%s) : %d\n", vetorMembrosCAcademica[posicaoNUtente].nome, vetorMembrosCAcademica[posicaoNUtente].quantTestesAgendados);
+
+                            logTestes(vetorTestes[quantTestesTotal], vetorMembrosCAcademica[posicaoNUtente], "Teste Agendado");
+
+                            (*quantTestesAgendados)++;
+                        }
                     }
+                    else
+                    {
+                        vetorMembrosCAcademica[posicaoNUtente].quantTestesAgendados++;
 
+                        vetorTestes[quantTestesTotal].resultado = -1;
 
+                        printf("\nTotal de Testes agendados do Membro (%s) : %d\n", vetorMembrosCAcademica[posicaoNUtente].nome, vetorMembrosCAcademica[posicaoNUtente].quantTestesAgendados);
+
+                        logTestes(vetorTestes[quantTestesTotal], vetorMembrosCAcademica[posicaoNUtente], "Teste Agendado");
+
+                        (*quantTestesAgendados)++;
+
+                    }
                 }
-
             }
-
-            vetorMembrosCAcademica[posicaoNUtente].quantTestesAgendados++;
-
-            vetorTestes[*quantTestesAgendados].resultado = -1;
-
-            printf("\nTotal de Testes agendados do Membro (%s) : %d\n", vetorMembrosCAcademica[posicaoNUtente].nome, vetorMembrosCAcademica[posicaoNUtente].quantTestesAgendados);
-
-            logTestes(vetorTestes[*quantTestesAgendados], vetorMembrosCAcademica[posicaoNUtente], "Teste Agendado");
-
-            (*quantTestesAgendados)++;
-
-
-
         }
-
     }
+
+    return vetorTestes;
 }
 
 
@@ -245,7 +274,7 @@ void logTestes(tipoTeste teste, tipoMembroCAcademica membro, char operacao[])
     else
     {
         fprintf(ficheiro,"\nOperacao: %s",operacao);
-        fprintf(ficheiro,"\nCodigo Teste : %d", teste.codigoTeste);
+        fprintf(ficheiro,"\nDesignacao Teste : %s", teste.designacaoTeste);
         fprintf(ficheiro,"\nNr. Membro : %d - %s", membro.numUtenteSaude, membro.nome);
         fprintf(ficheiro, "\nEstado de vacinacao : ");
         switch(membro.estadoVacina)
@@ -299,20 +328,18 @@ void logTestes(tipoTeste teste, tipoMembroCAcademica membro, char operacao[])
         fclose(ficheiro);
     }
 
-
-
-
-
 }
 
 
-int procurarTeste(tipoTeste vetorTestes[], int quantTestesAgendados, int codigo)
+int procurarTeste(tipoTeste vetorTestes[], int quantTestesAgendados, char designacaoTeste[])
 {
-    int i, posicaoTeste = -1;
+    int i, posicaoTeste = -1, stringsIguais;
 
     for(i=0; i < quantTestesAgendados; i++)
     {
-        if(codigo == vetorTestes[i].codigoTeste) //strcmp() == 0 iguais se devolver 0 - PROJETO
+        stringsIguais = strcmp(vetorTestes[i].designacaoTeste,designacaoTeste);
+
+        if(stringsIguais == 0) //strcmp() == 0 iguais se devolver 0 - PROJETO
         {
             posicaoTeste=i;
             i = quantTestesAgendados;
@@ -326,33 +353,35 @@ int procurarTeste(tipoTeste vetorTestes[], int quantTestesAgendados, int codigo)
 void registarResultadoTeste(tipoMembroCAcademica vetorMembrosCAcademica[], int quantMembrosComunidade, tipoTeste vetorTestes[],int *quantTestesAgendados, int *quantTestesRealizados)
 {
 
-    int codigoTeste, posicaoNUtente, posicaoTeste, i;
+    int posicaoNUtente, posicaoTeste,quantTestesTotal=0;
+    char designacaoTeste[MAXSTRING];
 
     if(quantMembrosComunidade == 0)
     {
         printf("\n\nERRO : nao existem membros registados\n\n");
 
     }
-    else if( *quantTestesAgendados == 0)
+    else if(*quantTestesAgendados == 0)
     {
         printf("\n\nERRO : nao existem testes agendados\n\n");
     }
     else
     {
+        quantTestesTotal = *quantTestesAgendados+  *quantTestesRealizados;
 
         printf("\n\n----------- REGISTAR RESULTADO TESTE -----------\n\n ");
 
-        codigoTeste = lerInteiro("\nIntroduza o codigo do teste que pretende registar o resultado : ", 1, vetorTestes[*quantTestesAgendados-1].codigoTeste);
-        posicaoTeste = procurarTeste(vetorTestes, *quantTestesAgendados, codigoTeste);
+        lerString("\nIntroduza a designacao do teste que pretende registar o resultado : ",designacaoTeste, MAXSTRING,SIM);
+        posicaoTeste = procurarTeste(vetorTestes, quantTestesTotal, designacaoTeste);
+        printf("\nPOSICAO TESTE NO VETOR : %d \n", posicaoTeste);
 
         if(posicaoTeste == -1)
         {
 
-            printf("\nERRO : Nao foi encontrado teste com o codigo indicado.\n");
+            printf("\nERRO : Nao foi encontrado teste com a designacao indicada.\n");
         }
         else
         {
-
             if(vetorTestes[posicaoTeste].resultado != -1)
             {
                 printf("\nERRO : o resultado do teste indicado ja foi registado");
@@ -360,12 +389,10 @@ void registarResultadoTeste(tipoMembroCAcademica vetorMembrosCAcademica[], int q
             else
             {
 
-
                 posicaoNUtente = procuraNumeroSNS(vetorMembrosCAcademica, quantMembrosComunidade, vetorTestes[posicaoTeste].numUtenteSaude);
 
                 vetorTestes[posicaoTeste].horaColheita = lerHora("\nIndique a hora em que foi colhida a amostra : ",0,MAXHORAS);
                 vetorTestes[posicaoTeste].duracaoMinutos = lerInteiro("\nIndique o tempo de duracao em minutos",0,MAXMINUTOSTESTE);
-
 
                 vetorTestes[posicaoTeste].resultado = lerInteiro("\nIndique o resultado do teste realizado : (0 - Negativo ; 1 - Positivo ; 2 - Inconclusivo)",NEGATIVO,INCONCLUSIVO );
 
@@ -385,23 +412,21 @@ void registarResultadoTeste(tipoMembroCAcademica vetorMembrosCAcademica[], int q
                 vetorMembrosCAcademica[posicaoNUtente].quantTestesRealizados++;
                 vetorMembrosCAcademica[posicaoNUtente].quantTestesAgendados--;
 
+                (*quantTestesRealizados)++;
+                (*quantTestesAgendados)--;
+
                 logTestes(vetorTestes[posicaoTeste], vetorMembrosCAcademica[posicaoNUtente], "Teste Realizado");
             }
-
-
         }
-
-
     }
-
-
 }
 
 
-void alterarDataTeste(tipoTeste vetorTeste[], int quantTestesAgendados)
+void alterarDataTeste(tipoTeste vetorTestes[], int quantTestesAgendados)
 {
 
-    int posicaoTeste, codigoTeste;
+    int posicaoTeste;
+    char designacaoTeste[MAXSTRING];
 
     if(quantTestesAgendados == 0)
     {
@@ -410,25 +435,23 @@ void alterarDataTeste(tipoTeste vetorTeste[], int quantTestesAgendados)
     }
     else
     {
-
-        codigoTeste = lerInteiro("\nIntroduza o codigo do teste que pretende alterar a data : ", 1, quantTestesAgendados);
-
-        posicaoTeste = procurarTeste(vetorTeste, quantTestesAgendados, codigoTeste);
+        lerString("\nIntroduza a designacao do teste que pretende registar o resultado : ",designacaoTeste, MAXSTRING,SIM);
+        posicaoTeste = procurarTeste(vetorTestes, quantTestesAgendados, designacaoTeste);
 
         if(posicaoTeste == -1)
         {
             printf("\nERRO : Nao foi encontrado teste com o codigo indicado.\n");
 
         }
-        else if(vetorTeste[posicaoTeste].resultado != -1)
+        else if(vetorTestes[posicaoTeste].resultado != -1)
         {
             printf("\nERRO : Nao e possivel alterar a data de um teste que ja foi realizado.\n");
         }
         else
         {
-           vetorTeste[posicaoTeste].dataTeste = lerData("\nIntroduza a nova data em que pretende realizar o teste : ",MINANO,MAXANO);
-           printf("\nO teste foi agendado para o dia : ");
-           escreverData(vetorTeste[posicaoTeste].dataTeste);
+            vetorTestes[posicaoTeste].dataTeste = lerData("\nIntroduza a nova data em que pretende realizar o teste : ",MINANO,MAXANO);
+            printf("\nO teste foi agendado para o dia : ");
+            escreverData(vetorTestes[posicaoTeste].dataTeste);
         }
 
     }

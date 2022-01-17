@@ -11,7 +11,7 @@ void gravaFicheiroBinarioComunidade(tipoMembroCAcademica vetorMembrosCAcademica[
 void lerFicheiroBinarioComunidade(tipoMembroCAcademica vetorMembrosCAcademica[], int *quantMembrosComunidade, int *quantMembrosVacinados);
 void gravarFicheiroTextoComunidade(tipoMembroCAcademica vetorMembrosCAcademica[], int quantMembrosComunidade, int quantMembrosVacinados);
 void gravaFicheiroBinarioTestes(tipoTeste vetorTestes[], int quantTestesAgendados, int quantTestesRealizados);
-void lerFicheiroBinarioTestes(tipoTeste vetorTestes[], int *quantTestesAgendados, int *quantTestesRealizados);
+tipoTeste* lerFicheiroBinarioTestes(tipoTeste vetorTestes[], int *quantTestesAgendados, int *quantTestesRealizados);
 
 
 
