@@ -5,7 +5,6 @@
 void adicionarMembro(int *quantMembrosComunidade, int  *quantMembrosVacinados, tipoMembroCAcademica vetorMembrosCAcademica[])
 {
 
-//    char nomeTemp[LIMITE_MAX_NOME];
     int opcaoNovoMembro=NAO, posMembro;
 
     if((*quantMembrosComunidade) < LIMITE_MAX_MEMBROS)
@@ -15,7 +14,7 @@ void adicionarMembro(int *quantMembrosComunidade, int  *quantMembrosVacinados, t
             opcaoNovoMembro = NAO;
 
             vetorMembrosCAcademica[(*quantMembrosComunidade)].numUtenteSaude = lerInteiro("\nIntroduza o numero de utente de saude : \n",MIN_NUM_UTENTE,MAX_NUM_UTENTE);
-            posMembro = procuraNumeroSNS(vetorMembrosCAcademica, *quantMembrosComunidade, vetorMembrosCAcademica[(*quantMembrosComunidade)].numUtenteSaude);
+            posMembro = procuraNumeroUtente(vetorMembrosCAcademica, *quantMembrosComunidade, vetorMembrosCAcademica[(*quantMembrosComunidade)].numUtenteSaude);
 
             if(posMembro != -1)
             {
@@ -26,11 +25,11 @@ void adicionarMembro(int *quantMembrosComunidade, int  *quantMembrosVacinados, t
             {
 
                 lerString("\nIntroduza o nome do utente : ",vetorMembrosCAcademica[(*quantMembrosComunidade)].nome, LIMITE_MAX_NOME, SIM);
-                vetorMembrosCAcademica[(*quantMembrosComunidade)].tipoMembro = lerInteiro("\nIndique o seu tipo de utente : \n1 - Estudante\n2 - Docente\n3 - Técnico\n", 1,3);
+                vetorMembrosCAcademica[(*quantMembrosComunidade)].tipoMembro = lerInteiro("\nIndique o seu tipo de utente : \n1 - Estudante\n2 - Docente\n3 - Tecnico\n", 1,3);
                 vetorMembrosCAcademica[(*quantMembrosComunidade)].anoNascimento = lerInteiro("\nIntroduza o ano de nascimento : ",MINANONASCIMENTO, MAXANONASCIMENTO);
                 lerEstadoConfinamento(quantMembrosComunidade, vetorMembrosCAcademica);
                 lerVacinacao(quantMembrosComunidade, vetorMembrosCAcademica);
-                if(vetorMembrosCAcademica[(*quantMembrosComunidade)].estadoVacina)  // OU  vetorMembrosCAcademica[(*quantMembrosComunidade)].estadoVacina != 0
+                if(vetorMembrosCAcademica[(*quantMembrosComunidade)].estadoVacina != 0)  // OU  vetorMembrosCAcademica[(*quantMembrosComunidade)].estadoVacina != 0
                 {
                     vetorMembrosCAcademica[(*quantMembrosComunidade)].dataUltimaVacina = lerData("\nIndique a data da ultima dose da vacina administrada : ",MINANOVACINA,MAXANOVACINA);
                     (*quantMembrosVacinados)++;
@@ -55,21 +54,21 @@ void adicionarMembro(int *quantMembrosComunidade, int  *quantMembrosVacinados, t
 
 
 
-int procuraNumeroSNS(tipoMembroCAcademica vetorMembrosCAcademica[], int quantMembrosComunidade, int numSNSProcurar)
+int procuraNumeroUtente(tipoMembroCAcademica vetorMembrosCAcademica[], int quantMembrosComunidade, int numUtenteProcurar)
 {
 
-    int i, posicaoSNS=-1;
+    int i, posicaoUtente=-1;
 
     for(i=0; i < quantMembrosComunidade; i++)
     {
-        if(vetorMembrosCAcademica[i].numUtenteSaude == numSNSProcurar)
+        if(vetorMembrosCAcademica[i].numUtenteSaude == numUtenteProcurar)
         {
-            posicaoSNS=i;
+            posicaoUtente=i;
             i=quantMembrosComunidade;
         }
     }
 
-    return posicaoSNS;
+    return posicaoUtente;
 
 
 }

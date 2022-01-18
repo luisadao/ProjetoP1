@@ -220,10 +220,10 @@
 1641897814 source:c:\users\luis_\downloads\github\projetop1\menus.c
 	"menus.h"
 
-1642009666 source:c:\users\luis_\documents\github\projetop1\funcoesconfinamento.c
+1642428187 source:c:\users\luis_\documents\github\projetop1\funcoesconfinamento.c
 	"funcoesConfinamento.h"
 
-1641897816 c:\users\luis_\documents\github\projetop1\funcoesconfinamento.h
+1642271022 c:\users\luis_\documents\github\projetop1\funcoesconfinamento.h
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -231,7 +231,7 @@
 	"funcoesGerais.h"
 	"funcoesMembros.h"
 
-1642009964 c:\users\luis_\documents\github\projetop1\estruturas.h
+1642522820 c:\users\luis_\documents\github\projetop1\estruturas.h
 	"funcoesGerais.h"
 
 1642009538 c:\users\luis_\documents\github\projetop1\funcoesgerais.h
@@ -240,15 +240,16 @@
 	<string.h>
 	<ctype.h>
 
-1642008172 c:\users\luis_\documents\github\projetop1\funcoesmembros.h
+1642525121 c:\users\luis_\documents\github\projetop1\funcoesmembros.h
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	"estruturas.h"
 	"funcoesConfinamento.h"
 	"funcoesTestes.h"
+	"funcoesVacinacao.h"
 
-1642018961 c:\users\luis_\documents\github\projetop1\funcoestestes.h
+1642428108 c:\users\luis_\documents\github\projetop1\funcoestestes.h
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -266,26 +267,26 @@
 	"estruturas.h"
 	"funcoesGerais.h"
 
-1642009512 source:c:\users\luis_\documents\github\projetop1\funcoesgerais.c
+1642524791 source:c:\users\luis_\documents\github\projetop1\funcoesgerais.c
 	"funcoesGerais.h"
 
-1642009444 source:c:\users\luis_\documents\github\projetop1\funcoesmembros.c
+1642525121 source:c:\users\luis_\documents\github\projetop1\funcoesmembros.c
 	"funcoesMembros.h"
 
-1642019509 source:c:\users\luis_\documents\github\projetop1\funcoestestes.c
+1642428208 source:c:\users\luis_\documents\github\projetop1\funcoestestes.c
 	"funcoesTestes.h"
 
-1642009916 source:c:\users\luis_\documents\github\projetop1\funcoesvacinacao.c
+1642428217 source:c:\users\luis_\documents\github\projetop1\funcoesvacinacao.c
 	"funcoesVacinacao.h"
 
-1639752368 c:\users\luis_\documents\github\projetop1\funcoesvacinacao.h
+1642271058 c:\users\luis_\documents\github\projetop1\funcoesvacinacao.h
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	"estruturas.h"
 	"funcoesMembros.h"
 
-1642019832 source:c:\users\luis_\documents\github\projetop1\main.c
+1642384146 source:c:\users\luis_\documents\github\projetop1\main.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -297,15 +298,16 @@
 	"funcoesConfinamento.h"
 	"funcoesFicheiros.h"
 	"funcoesTestes.h"
+	"funcoesEstatisticas.h"
 
-1642009590 c:\users\luis_\documents\github\projetop1\menus.h
+1642177957 c:\users\luis_\documents\github\projetop1\menus.h
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	<ctype.h>
 	"funcoesGerais.h"
 
-1641897816 source:c:\users\luis_\documents\github\projetop1\menus.c
+1642454650 source:c:\users\luis_\documents\github\projetop1\menus.c
 	"menus.h"
 
 1642271009 source:c:\users\luis_\documents\github\projetop1.12.01.22\funcoesconfinamento.c
@@ -402,6 +404,17 @@
 	"funcoesEstatisticas.h"
 
 1642271562 c:\users\luis_\documents\github\projetop1.12.01.22\funcoesestatisticas.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"estruturas.h"
+	"funcoesGerais.h"
+	"funcoesMembros.h"
+
+1642526312 source:c:\users\luis_\documents\github\projetop1\funcoesestatisticas.c
+	"funcoesEstatisticas.h"
+
+1642271562 c:\users\luis_\documents\github\projetop1\funcoesestatisticas.h
 	<stdio.h>
 	<stdlib.h>
 	<string.h>

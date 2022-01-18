@@ -13,10 +13,10 @@
 #define MINANOVACINA 2019
 #define MAXANOVACINA 2022
 
-#define MIN_NUM_UTENTE 1
-#define MAX_NUM_UTENTE 9
+#define MIN_NUM_UTENTE 1111
+#define MAX_NUM_UTENTE 9999
 
-int procuraNumeroSNS(tipoMembroCAcademica vetorMembrosCAcademica[], int quantMembrosComunidade, int numSNSProcurar);
+int procuraNumeroUtente(tipoMembroCAcademica vetorMembrosCAcademica[], int quantMembrosComunidade, int numSNSProcurar);
 
 
 void adicionarMembro(int *quantMembrosComunidade, int  *quantMembrosVacinados, tipoMembroCAcademica vetorMembrosCAcademica[]);

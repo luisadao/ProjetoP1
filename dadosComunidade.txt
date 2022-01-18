@@ -1,2 +1,20 @@
 
-Total de Membros Vacinados : 0
+
+Membro (1)
+Nr.Utente: 1111 - Nome: Joao
+Membro Nao Vacinado
+_________________________________________________
+
+
+Membro (2)
+Nr.Utente: 2222 - Nome: Ana
+Estado Vacina : 1 Dose		Data Avaliacao: 10 - 1 - 2022
+_________________________________________________
+
+
+Membro (3)
+Nr.Utente: 3333 - Nome: Daniel
+Estado Vacina : 3 Dose		Data Avaliacao: 4 - 7 - 2022
+_________________________________________________
+
+Total de Membros Vacinados : 2

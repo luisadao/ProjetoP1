@@ -13,7 +13,7 @@ void registarEstadoConfinamento(int quantMembrosComunidade, tipoMembroCAcademica
     else
     {
         numUtenteTemp= lerInteiro("Indique o nr. de utente de quem pretende registar o confinamento : ", MIN_NUM_UTENTE,MAX_NUM_UTENTE);
-        posicaoUtente = procuraNumeroSNS(vetorMembrosCAcademica,quantMembrosComunidade,numUtenteTemp);
+        posicaoUtente = procuraNumeroUtente(vetorMembrosCAcademica,quantMembrosComunidade,numUtenteTemp);
 
         if(posicaoUtente != -1)  // encontrou o utente
         {
@@ -50,7 +50,7 @@ void atualizarEstadoConfinamento(int quantMembrosComunidade, tipoMembroCAcademic
     else
     {
         numUtenteTemp = lerInteiro("Indique o nr. de utente de quem pretende atualizar o confinamento : ", MIN_NUM_UTENTE,MAX_NUM_UTENTE);
-        posicaoUtente = procuraNumeroSNS(vetorMembrosCAcademica,quantMembrosComunidade,numUtenteTemp);
+        posicaoUtente = procuraNumeroUtente(vetorMembrosCAcademica,quantMembrosComunidade,numUtenteTemp);
 
         if(posicaoUtente != -1)  // encontrou o utente
         {

@@ -15,7 +15,7 @@ void registarEstadoVacinacao(int quantMembrosComunidade, tipoMembroCAcademica ve
     else
     {
         tempNUtente = lerInteiro("\nInsira o Nº de utente do Membro que pretende registar a vacinacao.",MIN_NUM_UTENTE,MAX_NUM_UTENTE);
-        posicaoNUtente = procuraNumeroSNS(vetorMembrosCAcademica, quantMembrosComunidade, tempNUtente);
+        posicaoNUtente = procuraNumeroUtente(vetorMembrosCAcademica, quantMembrosComunidade, tempNUtente);
 
         if(posicaoNUtente != -1)  //encontrou logo pergunta que dose quer registar
         {
@@ -50,7 +50,7 @@ void atualizarEstadoVacinacao(int quantMembrosComunidade, tipoMembroCAcademica v
     else
     {
         tempNUtente = lerInteiro("\nInsira o Nº de utente do Membro que pretende atualizar a vacinacao.",MIN_NUM_UTENTE,MAX_NUM_UTENTE);
-        posicaoNUtente = procuraNumeroSNS(vetorMembrosCAcademica, quantMembrosComunidade, tempNUtente);
+        posicaoNUtente = procuraNumeroUtente(vetorMembrosCAcademica, quantMembrosComunidade, tempNUtente);
 
         if(posicaoNUtente != -1)  //encontrou logo pergunta que dose quer registar
         {

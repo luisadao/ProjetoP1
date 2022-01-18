@@ -18,7 +18,7 @@ void apresentarDadosTeste(tipoTeste vetorTestes[], int quantTotalTestes, tipoMem
 
         if(posicaoTeste != -1){
 
-        posicaoUtente = procuraNumeroSNS(vetorMembrosCAcademica,quantMembrosComunidade,vetorTestes[posicaoTeste].numUtenteSaude);
+        posicaoUtente = procuraNumeroUtente(vetorMembrosCAcademica,quantMembrosComunidade,vetorTestes[posicaoTeste].numUtenteSaude);
 
         printf("\nNome : %s",vetorMembrosCAcademica[posicaoUtente].nome);
         printf("\nTipo Membro : ");
@@ -169,7 +169,7 @@ tipoTeste* agendarTeste(tipoMembroCAcademica vetorMembrosCAcademica[], int quant
         printf("\n------------- AGENDAR TESTE -------------\n");
 
         nrMembro = lerInteiro("\nInsira o Nº de utente do Membro que pretende agendar um teste.",MIN_NUM_UTENTE,MAX_NUM_UTENTE);
-        posicaoNUtente = procuraNumeroSNS(vetorMembrosCAcademica, quantMembrosComunidade, nrMembro);
+        posicaoNUtente = procuraNumeroUtente(vetorMembrosCAcademica, quantMembrosComunidade, nrMembro);
 
         if(posicaoNUtente == -1)
         {
@@ -389,7 +389,7 @@ void registarResultadoTeste(tipoMembroCAcademica vetorMembrosCAcademica[], int q
             else
             {
 
-                posicaoNUtente = procuraNumeroSNS(vetorMembrosCAcademica, quantMembrosComunidade, vetorTestes[posicaoTeste].numUtenteSaude);
+                posicaoNUtente = procuraNumeroUtente(vetorMembrosCAcademica, quantMembrosComunidade, vetorTestes[posicaoTeste].numUtenteSaude);
 
                 vetorTestes[posicaoTeste].horaColheita = lerHora("\nIndique a hora em que foi colhida a amostra : ",0,MAXHORAS);
                 vetorTestes[posicaoTeste].duracaoMinutos = lerInteiro("\nIndique o tempo de duracao em minutos",0,MAXMINUTOSTESTE);

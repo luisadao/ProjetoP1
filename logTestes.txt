@@ -1,341 +1,52 @@
 
 Operacao: Teste Agendado
-Designacao Teste : TESTES
-Nr. Membro : 1 - JOAO
+Designacao Teste : MAX
+Nr. Membro : 1111 - Joao
 Estado de vacinacao : Nao Vacinado
-Data do Teste: 12-02-2022
-Tipo de Teste: PCR
+Data do Teste: 02-02-2022
+Tipo de Teste: Antigenio
 
 Operacao: Teste Realizado
-Designacao Teste : TESTES
-Nr. Membro : 1 - JOAO
+Designacao Teste : MAX
+Nr. Membro : 1111 - Joao
 Estado de vacinacao : Nao Vacinado
-Data do Teste: 12-02-2022
-Tipo de Teste: PCR
-
-Resultado : Positivo
-Hora da colheira : 12:22
-Tempo decorrido (Em minutos): 12
-Operacao: Teste Realizado
-Designacao Teste : TESTES
-Nr. Membro : 1 - JOAO
-Estado de vacinacao : Nao Vacinado
-Data do Teste: 12-02-2022
-Tipo de Teste: PCR
-
-Resultado : Positivo
-Hora da colheira : 12:20
-Tempo decorrido (Em minutos): 12
-Operacao: Teste Realizado
-Designacao Teste : TESTES
-Nr. Membro : 1 - JOAO
-Estado de vacinacao : Nao Vacinado
-Data do Teste: 12-02-2022
-Tipo de Teste: PCR
-
-Resultado : Positivo
-Hora da colheira : 12:20
-Tempo decorrido (Em minutos): 12
-Operacao: Teste Realizado
-Designacao Teste : TESTES
-Nr. Membro : 1 - JOAO
-Estado de vacinacao : Nao Vacinado
-Data do Teste: 12-02-2022
-Tipo de Teste: PCR
-
-Resultado : Positivo
-Hora da colheira : 12:29
-Tempo decorrido (Em minutos): 12
-Operacao: Teste Realizado
-Designacao Teste : TESTES
-Nr. Membro : 1 - JOAO
-Estado de vacinacao : Nao Vacinado
-Data do Teste: 12-02-2022
-Tipo de Teste: PCR
+Data do Teste: 02-02-2022
+Tipo de Teste: Antigenio
 
 Resultado : Inconclusivo
-Hora da colheira : 12:20
-Tempo decorrido (Em minutos): 12
-Operacao: Teste Agendado
-Designacao Teste : TEST
-Nr. Membro : 1 - JOAO
-Estado de vacinacao : Nao Vacinado
-Data do Teste: 15-06-2022
-Tipo de Teste: PCR
-
-Operacao: Teste Realizado
-Designacao Teste : TESTES
-Nr. Membro : 1 - JOAO
-Estado de vacinacao : Nao Vacinado
-Data do Teste: 12-02-2022
-Tipo de Teste: PCR
-
-Resultado : Positivo
-Hora da colheira : 12:20
-Tempo decorrido (Em minutos): 12
-Operacao: Teste Agendado
-Designacao Teste : TEST
-Nr. Membro : 1 - JOAO
-Estado de vacinacao : Nao Vacinado
-Data do Teste: 20-05-2022
-Tipo de Teste: PCR
-
-Operacao: Teste Agendado
-Designacao Teste : TESTTS
-Nr. Membro : 1 - JOAO
-Estado de vacinacao : Nao Vacinado
-Data do Teste: 25-07-2022
-Tipo de Teste: Antigenio
-
-Operacao: Teste Realizado
-Designacao Teste : TESTTS
-Nr. Membro : 1 - JOAO
-Estado de vacinacao : Nao Vacinado
-Data do Teste: 25-07-2022
-Tipo de Teste: Antigenio
-
-Resultado : Negativo
-Hora da colheira : 12:23
-Tempo decorrido (Em minutos): 12
-Operacao: Teste Agendado
-Designacao Teste : TESTES
-Nr. Membro : 1 - JOAO
-Estado de vacinacao : Nao Vacinado
-Data do Teste: 01-02-2022
-Tipo de Teste: PCR
-
-Operacao: Teste Agendado
-Designacao Teste : TESTESS
-Nr. Membro : 1 - JOAO
-Estado de vacinacao : Nao Vacinado
-Data do Teste: 18-06-2022
-Tipo de Teste: PCR
-
-Operacao: Teste Realizado
-Designacao Teste : TESTES
-Nr. Membro : 1 - JOAO
-Estado de vacinacao : Nao Vacinado
-Data do Teste: 12-02-2022
-Tipo de Teste: PCR
-
-Resultado : Negativo
-Hora da colheira : 12:23
+Hora da colheira : 02:20
 Tempo decorrido (Em minutos): 02
 Operacao: Teste Agendado
-Designacao Teste : TESTESS
-Nr. Membro : 1 - JOAO
-Estado de vacinacao : Nao Vacinado
-Data do Teste: 05-05-2022
-Tipo de Teste: PCR
-
-Operacao: Teste Realizado
-Designacao Teste : TESTESS
-Nr. Membro : 1 - JOAO
-Estado de vacinacao : Nao Vacinado
-Data do Teste: 05-05-2022
-Tipo de Teste: PCR
-
-Resultado : Negativo
-Hora da colheira : 12:20
-Tempo decorrido (Em minutos): 12
-Operacao: Teste Realizado
-Designacao Teste : TESTES
-Nr. Membro : 1 - JOAO
-Estado de vacinacao : Nao Vacinado
-Data do Teste: 12-02-2022
-Tipo de Teste: PCR
-
-Resultado : Positivo
-Hora da colheira : 12:20
-Tempo decorrido (Em minutos): 10
-Operacao: Teste Agendado
-Designacao Teste : TES
-Nr. Membro : 1 - JOAO
-Estado de vacinacao : Nao Vacinado
-Data do Teste: 06-05-2022
+Designacao Teste : MAX2
+Nr. Membro : 2222 - Ana
+Estado de vacinacao : Primeira Dose
+Data do Teste: 03-02-2022
 Tipo de Teste: Antigenio
 
 Operacao: Teste Realizado
-Designacao Teste : TES
-Nr. Membro : 1 - JOAO
-Estado de vacinacao : Nao Vacinado
-Data do Teste: 06-05-2022
+Designacao Teste : MAX2
+Nr. Membro : 2222 - Ana
+Estado de vacinacao : Primeira Dose
+Data do Teste: 03-02-2022
 Tipo de Teste: Antigenio
 
 Resultado : Negativo
 Hora da colheira : 12:23
 Tempo decorrido (Em minutos): 12
 Operacao: Teste Agendado
-Designacao Teste : ASSSS
-Nr. Membro : 1 - JOAO
-Estado de vacinacao : Nao Vacinado
-Data do Teste: 12-02-2022
-Tipo de Teste: PCR
-
-Operacao: Teste Agendado
-Designacao Teste : test
-Nr. Membro : 1 - joao
-Estado de vacinacao : Nao Vacinado
-Data do Teste: 06-05-2022
-Tipo de Teste: Antigenio
-
-Operacao: Teste Agendado
-Designacao Teste : tests
-Nr. Membro : 1 - joao
-Estado de vacinacao : Nao Vacinado
-Data do Teste: 03-06-2022
-Tipo de Teste: Antigenio
-
-Operacao: Teste Agendado
-Designacao Teste : tes
-Nr. Membro : 1 - joao
-Estado de vacinacao : Nao Vacinado
-Data do Teste: 02-05-2022
+Designacao Teste : max3
+Nr. Membro : 3333 - Daniel
+Estado de vacinacao : Terceira Dose
+Data do Teste: 03-03-2022
 Tipo de Teste: Antigenio
 
 Operacao: Teste Realizado
-Designacao Teste : tes
-Nr. Membro : 1 - joao
-Estado de vacinacao : Nao Vacinado
-Data do Teste: 02-05-2022
-Tipo de Teste: Antigenio
-
-Resultado : Negativo
-Hora da colheira : 12:20
-Tempo decorrido (Em minutos): 12
-Operacao: Teste Agendado
-Designacao Teste : xas
-Nr. Membro : 1 - joao
-Estado de vacinacao : Nao Vacinado
-Data do Teste: 01-02-2022
-Tipo de Teste: Antigenio
-
-Operacao: Teste Agendado
-Designacao Teste : xas
-Nr. Membro : 1 - JOAO
-Estado de vacinacao : Nao Vacinado
-Data do Teste: 12-07-2022
-Tipo de Teste: Antigenio
-
-Operacao: Teste Agendado
-Designacao Teste : kls
-Nr. Membro : 1 - JOAO
-Estado de vacinacao : Nao Vacinado
-Data do Teste: 07-05-2022
-Tipo de Teste: Antigenio
-
-Operacao: Teste Realizado
-Designacao Teste : kls
-Nr. Membro : 1 - JOAO
-Estado de vacinacao : Nao Vacinado
-Data do Teste: 07-05-2022
-Tipo de Teste: Antigenio
-
-Resultado : Negativo
-Hora da colheira : 16:20
-Tempo decorrido (Em minutos): 12
-Operacao: Teste Realizado
-Designacao Teste : xas
-Nr. Membro : 1 - JOAO
-Estado de vacinacao : Nao Vacinado
-Data do Teste: 12-07-2022
-Tipo de Teste: Antigenio
-
-Resultado : Negativo
-Hora da colheira : 18:12
-Tempo decorrido (Em minutos): 07
-Operacao: Teste Agendado
-Designacao Teste : mmx
-Nr. Membro : 1 - JOAO
-Estado de vacinacao : Nao Vacinado
-Data do Teste: 05-05-2022
-Tipo de Teste: Antigenio
-
-Operacao: Teste Realizado
-Designacao Teste : mmx
-Nr. Membro : 1 - JOAO
-Estado de vacinacao : Nao Vacinado
-Data do Teste: 05-05-2022
-Tipo de Teste: Antigenio
-
-Resultado : Inconclusivo
-Hora da colheira : 11:12
-Tempo decorrido (Em minutos): 04
-Operacao: Teste Agendado
-Designacao Teste : maxs
-Nr. Membro : 1 - JOAO
-Estado de vacinacao : Nao Vacinado
-Data do Teste: 05-05-2022
-Tipo de Teste: Antigenio
-
-Operacao: Teste Realizado
-Designacao Teste : maxs
-Nr. Membro : 1 - JOAO
-Estado de vacinacao : Nao Vacinado
-Data do Teste: 05-05-2022
-Tipo de Teste: Antigenio
-
-Resultado : Inconclusivo
-Hora da colheira : 12:50
-Tempo decorrido (Em minutos): 05
-Operacao: Teste Realizado
-Designacao Teste : kls
-Nr. Membro : 1 - JOAO
-Estado de vacinacao : Nao Vacinado
-Data do Teste: 07-05-2022
+Designacao Teste : max3
+Nr. Membro : 3333 - Daniel
+Estado de vacinacao : Terceira Dose
+Data do Teste: 03-03-2022
 Tipo de Teste: Antigenio
 
 Resultado : Inconclusivo
 Hora da colheira : 11:23
-Tempo decorrido (Em minutos): 02
-Operacao: Teste Agendado
-Designacao Teste : mxas
-Nr. Membro : 1 - JOAO
-Estado de vacinacao : Nao Vacinado
-Data do Teste: 05-05-2022
-Tipo de Teste: Antigenio
-
-Operacao: Teste Realizado
-Designacao Teste : mxas
-Nr. Membro : 1 - JOAO
-Estado de vacinacao : Nao Vacinado
-Data do Teste: 05-05-2022
-Tipo de Teste: Antigenio
-
-Resultado : Inconclusivo
-Hora da colheira : 12:23
-Tempo decorrido (Em minutos): 02
-Operacao: Teste Agendado
-Designacao Teste : MAX1
-Nr. Membro : 1 - JOAO
-Estado de vacinacao : Nao Vacinado
-Data do Teste: 02-02-2022
-Tipo de Teste: PCR
-
-Operacao: Teste Agendado
-Designacao Teste : MAX2
-Nr. Membro : 1 - JOAO
-Estado de vacinacao : Nao Vacinado
-Data do Teste: 02-02-2022
-Tipo de Teste: PCR
-
-Operacao: Teste Agendado
-Designacao Teste : KOS
-Nr. Membro : 1 - JOAO
-Estado de vacinacao : Nao Vacinado
-Data do Teste: 02-02-2022
-Tipo de Teste: PCR
-
-Operacao: Teste Agendado
-Designacao Teste : MAX1
-Nr. Membro : 1 - JOAO
-Estado de vacinacao : Nao Vacinado
-Data do Teste: 02-02-2022
-Tipo de Teste: PCR
-
-Operacao: Teste Agendado
-Designacao Teste : MAX2
-Nr. Membro : 1 - JOAO
-Estado de vacinacao : Nao Vacinado
-Data do Teste: 02-02-2022
-Tipo de Teste: PCR
+Tempo decorrido (Em minutos): 07

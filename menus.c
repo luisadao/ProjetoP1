@@ -14,7 +14,8 @@ char menuPrincipal(int quantMembrosComunidade, int quantTestesAgendados, int qua
     printf("V - Menu Vacinacao\n");
     printf("C - Menu Confinamento\n");
     printf("T - Menu Testes\n");
-    printf("F - Menu Ficheiros\n\n");
+    printf("F - Menu Ficheiros\n");
+    printf("E - Estatisticas\n\n");
     printf("S - Sair\n\n");
 
     opcaoP = lerCaracter();

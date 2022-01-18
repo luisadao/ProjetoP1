@@ -49,42 +49,31 @@ void apresentarDadosEstatisticos(tipoMembroCAcademica vetorMembrosCAcademica[], 
 
             for(i=0; i < quantTotalTestes ; i++)
             {
-                printf("\n\n");
-                escreverData(vetorTestes[i].dataTeste);
-                printf("\n\n");
                 if(vetorTestes[i].resultado != -1)
                 {
                     tempoMedioTestes = tempoMedioTestes + vetorTestes[i].duracaoMinutos;
 
 
-                    if(testeMaisRecenteRealizado.dataTeste.ano > vetorTestes[i].dataTeste.ano) // se o ano foi maior , escusa de fazer o resto das verificacoes
+                    if(testeMaisRecenteRealizado.dataTeste.ano > vetorTestes[i].dataTeste.ano)
                     {
-                         if(testeMaisRecenteRealizado.dataTeste.mes > vetorTestes[i].dataTeste.mes){
-
-                         }
                         if(testeMaisRecenteRealizado.dataTeste.mes == vetorTestes[i].dataTeste.mes)
                         {
-                            if(testeMaisRecenteRealizado.dataTeste.dia >= vetorTestes[i].dataTeste.dia){
-
-                            }else{
+                            if(!(testeMaisRecenteRealizado.dataTeste.dia >= vetorTestes[i].dataTeste.dia))
+                            {
                                 testeMaisRecenteRealizado = vetorTestes[i];
                             }
 
                         }
-                    }else if(testeMaisRecenteRealizado.dataTeste.ano == vetorTestes[i].dataTeste.ano)
+                    }
+                    else if(testeMaisRecenteRealizado.dataTeste.ano == vetorTestes[i].dataTeste.ano)
                     {
-                        if(testeMaisRecenteRealizado.dataTeste.mes >= vetorTestes[i].dataTeste.mes)
+                        if(!(testeMaisRecenteRealizado.dataTeste.mes >= vetorTestes[i].dataTeste.mes))
                         {
-
-                        }else{
                             testeMaisRecenteRealizado = vetorTestes[i];
-
                         }
-
-                            if(testeMaisRecenteRealizado.dataTeste.dia >= vetorTestes[i].dataTeste.dia){
-
-                            }else{
-                                testeMaisRecenteRealizado = vetorTestes[i];
+                        if(!(testeMaisRecenteRealizado.dataTeste.dia >= vetorTestes[i].dataTeste.dia))
+                        {
+                            testeMaisRecenteRealizado = vetorTestes[i];
                         }
 
                     }
@@ -100,13 +89,14 @@ void apresentarDadosEstatisticos(tipoMembroCAcademica vetorMembrosCAcademica[], 
             tempoMedioTestes = tempoMedioTestes / quantTestesRealizados;
             percTestesInconclusivos = percTestesInconclusivos / quantTestesRealizados *100 ;
             printf("\nTempo medio de duracao de um Teste : %d minutos", tempoMedioTestes);
-            printf("\nPercentagem de Testes Inconclusivos : %.2f", percTestesInconclusivos);
+            printf("\nPercentagem de Testes Inconclusivos : %.2f %%", percTestesInconclusivos);
             printf("\nULTIMO(S) TESTE REALIZADO : \n");
-            for(i=0;i<quantTotalTestes;i++){
-                            datasIguais = comparaData((vetorTestes[i].dataTeste),(testeMaisRecenteRealizado.dataTeste));
-                    if(vetorTestes[i].resultado != -1 && datasIguais == 1)
+            for(i=0; i<quantTotalTestes; i++)
+            {
+                datasIguais = comparaData((vetorTestes[i].dataTeste),(testeMaisRecenteRealizado.dataTeste));
+                if(vetorTestes[i].resultado != -1 && datasIguais == 1)
                 {
-                    printf("\nDesignacao  : %s \n data : ",vetorTestes[i].designacaoTeste);
+                    printf("\nDesignacao  : %s \n Data : ",vetorTestes[i].designacaoTeste);
                     escreverData(vetorTestes[i].dataTeste);
                 }
 

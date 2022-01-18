@@ -6,7 +6,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define MAXTESTESPCRDIA 2
+#define MAXTESTESPCRDIA 15
 #define TESTEANTIGENIO 1
 #define TESTEPCR 2
 #define NEGATIVO 0
